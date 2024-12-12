@@ -34,22 +34,20 @@ const pAequorFactory = (specimenNum, dna) => {
 
         compareDNA(otherPAequor) {
             let commonCount = 0;
-            // Compare DNA bases at each index
             this.dna.forEach((base, index) => {
                 if (base === otherPAequor.dna[index]) {
                     commonCount++;
                 }
             });
 
-            // Calculate percentage of identical bases
-            const percentage = ((commonCount / this.dna.length));
+            const percentage = (commonCount / this.dna.length);
 
-            console.log(`Specimen #${this.specimenNum} and Specimen #${otherPAequor.specimenNum} have ${percentage}% DNA in common.`);
+            console.log(`Specimen #${this.specimenNum} and Specimen #${otherPAequor.specimenNum} and ${percentage}% DNA in common.`);
         },
     };
 };
 
-const pAequor1 = pAequorFactory(1, ['A', 'C', 'T', 'G', 'A', 'C', 'T', 'G', 'A', 'C', 'T', 'G', 'A', 'C', 'T']);
-const pAequor2 = pAequorFactory(2, ['A', 'C', 'T', 'G', 'C', 'A', 'T', 'G', 'A', 'C', 'T', 'G', 'A', 'C', 'T']);
+const pAequor1 = pAequorFactory(1, ['A', 'C', 'T', 'G', 'T', 'A', 'T', 'G', 'A', 'C', 'T', 'G', 'A', 'C', 'T']);
+const pAequor2 = pAequorFactory(2, ['A', 'C', 'T', 'G', 'A', 'A', 'T', 'G', 'A', 'C', 'T', 'G', 'A', 'C', 'T']);
 
 pAequor1.compareDNA(pAequor2);
