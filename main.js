@@ -40,7 +40,7 @@ const pAequorFactory = (specimenNum, dna) => {
                 }
             });
 
-            const percentage = (commonCount / this.dna.length);
+            const percentage = ((commonCount / this.dna.length) * 100).toFixed(2);
 
             console.log(`Specimen #${this.specimenNum} and Specimen #${otherPAequor.specimenNum} and ${percentage}% DNA in common.`);
         },
