@@ -5,7 +5,7 @@ class LinkedList {
         this.head = null;
     }
 
-    addToHead(data) {
+    addToHead() {
         const newHead = new Node(data);
         const currentHead = this.head;
         this.head = newHead;
@@ -22,9 +22,8 @@ class LinkedList {
             while (tail.getNextNode() !== null) {
                 tail = tail.getNextNode();
             }
-
-            tail.setNextNode(new Node(data));
         }
+        tail.setNextNode(new Node(data));
     }
 }
 
