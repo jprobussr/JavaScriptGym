@@ -40,12 +40,11 @@ const pAequorFactory = (specimenNum, dna) => {
                 if (base === otherPAequor.dna[index]) {
                     commonCount++;
                 }
-            });
+            })
             // Calculate percentage of identical bases
-            const percentage = ((commonCount / this.dna.length) * 100).toFixed(2);
+            let percentage = ((commonCount / this.dna.length) * 100).toFixed(2);
 
-            //Print the message
-            console.log(`Specimen #${this.specimenNum} and Specimen #${otherPAequor.specimenNum} have ${percentage}% DNA in common.`);
+            console.log(`Specimen #${this.specimenNum} and #${otherPAequor.specimenNum} have ${percentage}% DNA in common.`);
     }
 };
 

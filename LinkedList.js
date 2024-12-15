@@ -5,11 +5,11 @@ class LinkedList {
         this.head = null;
     }
 
-    addToHead() {
+    addToHead(data) {
         const newHead = new Node(data);
         const currentHead = this.head;
         this.head = newHead;
-        if (currentHead) {
+        if(currentHead) {
             this.head.setNextNode(currentHead);
         }
     }
@@ -22,8 +22,8 @@ class LinkedList {
             while (tail.getNextNode() !== null) {
                 tail = tail.getNextNode();
             }
+            tail.setNextNode(new Node(data));
         }
-        tail.setNextNode(new Node(data));
     }
 }
 
