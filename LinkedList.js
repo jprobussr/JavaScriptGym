@@ -1,6 +1,6 @@
-import { Node } from './Node.js';
+const Node = require('./Node');
 
-export class LinkedList {
+class LinkedList {
     constructor() {
         this.head = null;
     }
@@ -14,7 +14,7 @@ export class LinkedList {
         }
     }
 
-    addToTail(data) {
+    addToTail() {
         let tail = this.head;
         if (!tail) {
             this.head = new Node(data);
@@ -22,6 +22,7 @@ export class LinkedList {
             while (tail.getNextNode() !== null) {
                 tail = tail.getNextNode();
             }
+
             tail.setNextNode(new Node(data));
         }
     }
@@ -31,10 +32,21 @@ export class LinkedList {
         if (!removeHead) {
             return;
         }
-
         this.head = removeHead.getNextNode();
         return removeHead.data;
     }
 
+    printList() {
+        let currentNode = this.head;
+        let output = '<head>';
+        while (currentNode !== null) {
+            output += currentNode.data + '';
+        }
 
+        output += '<tail>';
+        console.log(output);
+    }
 }
+
+
+module.exports = LinkedList;
