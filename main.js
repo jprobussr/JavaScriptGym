@@ -23,30 +23,36 @@ const pAequorFactory = (specimenNum, dna) => {
 
         mutate() {
             const bases = ['A', 'T', 'C', 'G'];
-            const randIndex = Math.floor(Math.random() * this.dna.length);
-            const currentBase = this.dna[randIndex];
+            const randomIndex = Math.floor(Math.random() * this.dna.length);
+            const currentBase = this.dna[randomIndex];
 
             const newBases = bases.filter((base) => base !== currentBase);
             const newBase = newBases[Math.floor(Math.random() * newBases.length)];
-            this.dna[randIndex] = newBase;
+            this.dna[randomIndex] = newBase;
             return this.dna;
         },
 
         compareDNA(otherPAequor) {
             let commonCount = 0;
-            this.dna.forEach((base, index) => {
+            this.dna.filter((base, index) => {
                 if (base === otherPAequor.dna[index]) {
                     commonCount++;
                 }
             });
 
-            const percentatge = ((commonCount / this.dna.length) * 100).toFixed(2);
+            const percentage = ((commonCount / this.dna.length) * 100).toFixed(2);
 
-            console.log(`Specimen #${this.specimenNum} and Specimen #${otherPAequor.specimenNum} have ${percentatge}% DNA in common.`);
+            console.log(`Specimen #${this.specimenNum} and Specimen #${otherPAequor.specimenNum} have ${percentage}% DNA in common`);
         },
 
-    }
-};
+        willLilelySurvive() {
+            const survivalBases = this.dna.filter((base) => base === 'C' || base === 'G');
+            const survivalRate = (survivalBases.length / this.dna.length) * 100;
+            return survivalRate >= 60;
+        },
+    };
+}
+
 const pAequor1 = pAequorFactory(1, ['A', 'C', 'T', 'G', 'A', 'A', 'T', 'G', 'A', 'C', 'T', 'G', 'A', 'C', 'T']);
 const pAequor2 = pAequorFactory(2, ['A', 'C', 'T', 'G', 'A', 'A', 'T', 'G', 'A', 'C', 'T', 'G', 'A', 'C']);
 
@@ -57,3 +63,6 @@ const ex2 = pAequorFactory(2, ['C', 'A', 'T', 'T']);
 
 ex1.compareDNA(ex2);
 
+const specimen1 = pAequorFactory(1, mockUpStrand());
+console.log(`Specimen #DNA: ${specimen1.dna}`);
+console.log(`will Specimen #1 survive? ${specimen1.willLilelySurvive()}`);

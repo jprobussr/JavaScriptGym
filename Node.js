@@ -1,4 +1,4 @@
-class Node {
+export class Node {
     constructor(data) {
         this.data = data;
         this.next = null;
@@ -6,8 +6,9 @@ class Node {
 
     setNextNode(node) {
         if (!(node instanceof Node)) {
-            throw new Error('Next node must be a member of the node class');
+            throw new Error("Next node must be a member of the node class");
         }
+
         this.next = node;
     }
 
@@ -15,5 +16,3 @@ class Node {
         return this.next;
     }
 }
-
-module.exports = Node;
