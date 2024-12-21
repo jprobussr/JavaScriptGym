@@ -24,9 +24,9 @@ const pAequorFactory = (specimenNum, dna) => {
         mutate() {
             const bases = ['A', 'T', 'C', 'G'];
             const randomIndex = Math.floor(Math.random() * this.dna.length);
-            const currentBase = this.dna[randomIndex];
+            const currentBases = this.dna[randomIndex];
 
-            const newBases = bases.filter((base) => base !== currentBase);
+            const newBases = bases.filter((base) => base !== currentBases);
             const newBase = newBases[Math.floor(Math.random() * newBases.length)];
             this.dna[randomIndex] = newBase;
             return this.dna;
@@ -42,11 +42,11 @@ const pAequorFactory = (specimenNum, dna) => {
 
             const percentage = ((commonCount / this.dna.length) * 100).toFixed(2);
 
-            console.log(`Specimen #${this.specimenNum} and Specimen #${otherPAequor.specimenNum} have ${percentage}% DNA in common`);
+            console.log(`Specimen #${this.specimenNum} and #${otherPAequor.specimenNum} have ${percentage}% DNA in common.`);
         },
 
-        willLilelySurvive() {
-            const survivalBases = this.dna.filter((base) => base === 'C' || base === 'G');
+        willLikelySurvive() {
+            const survivalBases = this.dna.filter((base) => base === 'C' || 'G');
             const survivalRate = (survivalBases.length / this.dna.length) * 100;
             return survivalRate >= 60;
         },
@@ -65,4 +65,4 @@ ex1.compareDNA(ex2);
 
 const specimen1 = pAequorFactory(1, mockUpStrand());
 console.log(`Specimen #DNA: ${specimen1.dna}`);
-console.log(`will Specimen #1 survive? ${specimen1.willLilelySurvive()}`);
+console.log(`will Specimen #1 survive? ${specimen1.willLikelySurvive()}`);

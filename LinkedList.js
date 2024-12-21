@@ -14,7 +14,7 @@ class LinkedList {
         }
     }
 
-    addToTail() {
+    addToTail(data) {
         let tail = this.head;
         if (!tail) {
             this.head = new Node(data);
@@ -22,7 +22,6 @@ class LinkedList {
             while (tail.getNextNode() !== null) {
                 tail = tail.getNextNode();
             }
-
             tail.setNextNode(new Node(data));
         }
     }
@@ -38,15 +37,15 @@ class LinkedList {
 
     printList() {
         let currentNode = this.head;
-        let output = '<head>';
+        let output = "<head> ";
         while (currentNode !== null) {
-            output += currentNode.data + '';
+            output += currentNode.data + ' ';
+            currentNode = currentNode.getNextNode();
         }
 
         output += '<tail>';
         console.log(output);
     }
 }
-
 
 module.exports = LinkedList;
