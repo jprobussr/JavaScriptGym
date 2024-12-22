@@ -34,24 +34,43 @@ const pAequorFactory = (specimenNum, dna) => {
 
         compareDNA(otherPAequor) {
             let commonCount = 0;
-            this.dna.filter((base, index) => {
+            this.dna.forEach((base, index) => {
                 if (base === otherPAequor.dna[index]) {
                     commonCount++;
                 }
             });
 
-            const percentage = ((commonCount / this.dna.length) * 100).toFixed(2);
+            const percentage = ((commonCount / this.dna.length) * 100);
 
-            console.log(`Specimen #${this.specimenNum} and #${otherPAequor.specimenNum} have ${percentage}% DNA in common.`);
+            console.log(`Specimen #${this.specimenNum} and #${otherPAequor.specimenNum} have ${percentage.toFixed(2)}% DNA in common.`);
+            return percentage;
         },
 
         willLikelySurvive() {
-            const survivalBases = this.dna.filter((base) => base === 'C' || 'G');
+            const survivalBases = this.dna.filter((base) => base === 'C' || base === 'G');
             const survivalRate = (survivalBases.length / this.dna.length) * 100;
             return survivalRate >= 60;
         },
     };
-}
+};
+
+const createSurvivingPAequor = () => {
+    const survivingPAequor = [];
+    let specimenNum = 1;
+
+    while (survivingPAequor.length < 30) {
+        const newSpecimen = pAequorFactory(specimenNum, mockUpStrand());
+        if (newSpecimen.willLikelySurvive()) {
+            survivingPAequor.push(newSpecimen);
+            specimenNum++;
+        }
+    }
+
+    return survivingPAequor;
+};
+
+const survivingSpecimens = createSurvivingPAequor();
+console.log(survivingSpecimens);
 
 const pAequor1 = pAequorFactory(1, ['A', 'C', 'T', 'G', 'A', 'A', 'T', 'G', 'A', 'C', 'T', 'G', 'A', 'C', 'T']);
 const pAequor2 = pAequorFactory(2, ['A', 'C', 'T', 'G', 'A', 'A', 'T', 'G', 'A', 'C', 'T', 'G', 'A', 'C']);
