@@ -5,10 +5,10 @@ class Node {
     }
 
     setNextNode(node) {
-        if (!(node instanceof Node)) {
-            throw new Error("Next node must be a member of the Node class.");
-        } else {
+        if (!(node instanceof Node || node === null)) {
             this.next = node;
+        } else {
+            throw new Error('Next node must be a member of the Node class.')
         }
     }
 
