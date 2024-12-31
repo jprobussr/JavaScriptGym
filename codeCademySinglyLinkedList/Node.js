@@ -1,31 +1,80 @@
-// Define a class Node, which represents a single element in a linked list
 class Node {
-    // The constructor method initializes the node with data and a pointer to the next node
     constructor(data) {
-        // Store the data passed to the node
         this.data = data;
-        // Initialize the next pointer to null since the node doesn't point to anything yet
         this.next = null;
     }
 
-    // Method to set the next node on the linked list
     setNextNode(node) {
-        // Check if the provided node is either an instance of Node or null
         if (node instanceof Node || node === null) {
-            // If the check passes, set the next pointer to the given node.
             this.next = node;
         } else {
-            // If the check fails, throw an error to ensure data integrity in the linked list
-            throw new Error('Next node must be a member of the Node class');
+            throw Error('Not a Node');
         }
     }
 
-    // Method to get the next node that this node points to
     getNextNode() {
-        // Return the node stored in the next pointer
         return this.next;
     }
 }
 
-// Export the Node class to make it available for use in other files
+const stop1 = new Node('4434 PottersTown Rd');
+const stop2 = new Node('444 Butterfly Lane');
+const stop3 = new Node('8934 Bel Vista Rd');
+const stop4 = new Node('590 Autum Pl');
+const stop5 = new Node('88 Coohoon Rd');
+
+stop1.setNextNode(stop2);
+stop2.setNextNode(stop3);
+stop3.setNextNode(stop4);
+stop4.setNextNode(stop5);
+
+
+// Traverse the route 
+let currentStop = stop1;
+console.log('Starting the bus route.');
+while (currentStop) {
+    console.log(`Arrived at: ${currentStop.data}`);
+    currentStop = currentStop.getNextNode();
+}
+
+console.log('End of the route.');
+
+
+
+
+// class Node {
+//     constructor(data) {
+//         this.data = data;
+//         this.next = null;
+//     }
+
+//     setNextNode(node) {
+//         if (node instanceof Node || node === null) {
+//             this.next = node;
+//         } else {
+//             throw Error('Not a node');
+//         }
+//     }
+
+//     getNextNode() {
+//         return this.next;
+//     }
+// }
+
+// const strawberryNode = new Node('Berry Tasty');
+// const vanillaNode = new Node('Vanilla');
+// const coconutNode = new Node('Coconuts for Coconut');
+
+// vanillaNode.setNextNode(strawberryNode);
+// strawberryNode.setNextNode(coconutNode);
+
+// let currentNode = vanillaNode;
+
+// while (currentNode) {
+//     console.log(currentNode.data);
+//     currentNode = currentNode.getNextNode();
+// }
+
+
+
 module.exports = Node;
