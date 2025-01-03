@@ -1,3 +1,77 @@
+const { checkInventory } = require('./library.js');
+
+const order = [
+  ['sunglasses', 10],
+  ['bags', 2],
+];
+
+const handleSuccess = (resolvedValue) => {
+  console.log(resolvedValue);
+};
+
+const handleFailure = (rejectValue) => {
+  console.log(rejectValue);
+};
+
+checkInventory(order).then(handleSuccess, handleFailure);
+
+//   let num = Math.random();
+//   if (num < 0.5) {
+//     resolve('Yay');
+//   } else {
+//     reject('Ohhh nooo...');
+//   }
+// });
+
+// const handleSuccess = (resolvedValue) => {
+//   console.log(resolvedValue);
+// };
+
+// const handleFailure = (rejectionReason) => {
+//   console.log(rejectionReason);
+// };
+
+// prom.then(handleSuccess, handleFailure);
+
+// console.log('This is the start of the New Year. SetTimeOut');
+
+// const usingSetTimeOut = () => {
+//   console.log('Stand Still and consider the Wondrous works of God.');
+// };
+
+// setTimeout(usingSetTimeOut, 3000);
+
+// setTimeout(() => {
+//     console.log('Stand Still and consider the Wondrous works of God.');
+// }, 5000);
+
+// const usingSTO = () => {
+//     console.log('Stand Still!');
+// }
+
+// setTimeout(usingSTO, 3000);
+
+// const inventory = {
+//   sunglasses: -1900,
+//   pants: 1088,
+//   bags: 1344,
+// };
+
+// const myExecutor = (resolve, reject) => {
+//   if (inventory.sunglasses > 0) {
+//     resolve('Sunglasses order processed.');
+//   }
+//   reject('That item is sold out.');
+// };
+
+// const orderSunglasses = () => {
+//   return new Promise(myExecutor);
+// };
+
+// const orderPromise = orderSunglasses();
+
+// console.log(orderPromise);
+
 // Tracking online orders
 
 // const orders = [

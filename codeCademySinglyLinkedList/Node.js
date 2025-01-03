@@ -1,23 +1,37 @@
+class Node {
+    constructor(data) {
+        this.data = data;
+        this.next = null;
+    }
+
+    setNextNode(node) {
+        if (node instanceof Node || node === null) {
+            throw new Error('Next node must be a member of the Node class.');
+        } else {
+            this.next = node;
+        }
+    }
+
+    getNextNode() {
+        return this.next;
+    }
+}
 
 
-// class Node {
-//     constructor(data) {
-//         this.data = data;
-//         this.next = null;
-//     }
+module.exports = Node;
 
-//     setNextNode(node) {
-//         if (node instanceof Node || node === null) {
-//             this.next = node;
-//         } else {
-//             throw Error('Not a node');
-//         }
-//     }
 
-//     getNextNode() {
-//         return this.next;
-//     }
-// }
+
+
+
+
+
+
+
+
+
+
+
 
 // const step1 = new Node('Preheat the oven to 375° (190°C).');
 // const step2 = new Node('Mix flour, sugar, and baking powder in a bowl.');
@@ -165,4 +179,3 @@
 
 
 
-module.exports = Node;

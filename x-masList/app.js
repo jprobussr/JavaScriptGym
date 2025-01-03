@@ -14,15 +14,15 @@ console.log('Current Playlist: ');
 christmasPlayList.printList();
 
 // Remove the currently playing song (head of the list);
-console.log("\nPlaying song:", christmasPlayList.removeHead());
+console.log('\nPlaying song:', christmasPlayList.removeHead());
 
 // Print the updated playlist
 console.log('Updated playlist:');
 christmasPlayList.printList();
 
 //Add a new song to the head of the playlist
-christmasPlayList.addToHead("Deck the Halls");
+christmasPlayList.addToHead('Deck the Halls');
 
 // Print the final Playlist
-console.log("Final Playlist:");
+console.log('Final Playlist:');
 christmasPlayList.printList();
