@@ -4,22 +4,42 @@ class Node {
         this.next = null;
     }
 
-    setNextNode(node) {
-        if (node instanceof Node || node === null) {
-            throw new Error('Next node must be a member of the Node class.');
-        } else {
-            this.next = node;
-        }
+   setNextNode(node) {
+    if (!(node instanceof Node)) {
+        throw new Error('Next node must be a member of the Node class');
     }
+    this.next = node;
+   }
 
-    getNextNode() {
-        return this.next;
-    }
+   getNextNode() {
+    return this.next;
+   }
 }
-
 
 module.exports = Node;
 
+
+
+
+// class Node {
+//     constructor(title) {
+//         this.title = title;
+//         this.next = null;
+//     }
+
+//     setNextNode(node) {
+//         if (!(node instanceof Node) && node !== null) {
+//             throw new Error('Next node must be a member of the Node class or null');
+//         }
+//         this.next = node;
+//     }
+
+//     getNextNode() {
+//         return this.next;
+//     }
+// }
+
+// module.exports = Node;
 
 
 
