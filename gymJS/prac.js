@@ -1,19 +1,19 @@
-const { checkInventory } = require('./library.js');
+// const { checkInventory } = require('./library.js');
 
-const order = [
-  ['sunglasses', 10],
-  ['bags', 2],
-];
+// const order = [
+//   ['sunglasses', 10],
+//   ['bags', 2],
+// ];
 
-const handleSuccess = (resolvedValue) => {
-  console.log(resolvedValue);
-};
+// const handleSuccess = (resolvedValue) => {
+//   console.log(resolvedValue);
+// };
 
-const handleFailure = (rejectValue) => {
-  console.log(rejectValue);
-};
+// const handleFailure = (rejectValue) => {
+//   console.log(rejectValue);
+// };
 
-checkInventory(order).then(handleSuccess, handleFailure);
+// checkInventory(order).then(handleSuccess, handleFailure);
 
 //   let num = Math.random();
 //   if (num < 0.5) {

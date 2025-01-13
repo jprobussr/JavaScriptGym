@@ -56,6 +56,14 @@ const fetchTemperature = async (latitude, longitude) => {
   ]);
   
 
+  const celsiusToFahrenheit = celsius => {
+    return (celsius * 9 / 5) + 32;
+  }
+
+  let tempCelsius = -1.9;
+  let tempFahrenheit = celsiusToFahrenheit(tempCelsius);
+  console.log(`${tempCelsius}°C is equal to ${tempFahrenheit}`);
+
 
 // // Weather Data
 

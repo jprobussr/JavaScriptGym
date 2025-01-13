@@ -10,7 +10,7 @@ seasons.addToHead('Spring');
 
 seasons.addToTail('Break');
 
-seasons.removeHead();
+
 seasons.printList();
 
 // Search for Node

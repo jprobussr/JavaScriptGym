@@ -1,5 +1,7 @@
 ## JavaScript GYM Playlist
 
+- Soft Country Music | Guitar and Banjo Music
+
 - Beast of Nomyn
 
 - Ludovico Einaudi - "Divenire"
