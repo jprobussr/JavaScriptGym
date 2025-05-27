@@ -1,0 +1,13 @@
+body {
+  background-color: #000; /* Black background */
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: sans-serif;
+  flex-direction: column;
+}
+
+
+
