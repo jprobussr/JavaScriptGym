@@ -1,19 +1,27 @@
-## JavaScript GYM Playlist
+# 🏋️ JavaScript Gym
 
-- Soft Country Music | Guitar and Banjo Music
+**JavaScript Gym** is my personal coding dojo — a dedicated space where I learn, practice, and level up my JavaScript skills.
 
-- Beast of Nomyn
+## 📌 Purpose
 
-- Ludovico Einaudi - "Divenire"
+This repo serves as a hands-on learning environment for:
 
-- Tycho - "Awake"
+- Practicing core JavaScript concepts
+- Building mini-projects to reinforce skills
+- Updating my knowledge with modern JavaScript features
+- Experimenting with different coding patterns and techniques
 
-- Lo-fi Hip Hop Radio - Chillhop Music
+## 🧠 What You'll Find
 
-- Brian Eno - "Music for Airports"
+- 💡 **Code exercises**: Syntax drills, DOM manipulation, local storage, and more
+- 🔧 **Mini projects**: Small apps built with HTML, CSS, and JavaScript
 
-- The Legend of Zelda: Breath of the Wild Soundtrack
+## 🚀 Goals
 
-- Miles Davis - "So What" (from the album "Kind of Blue")
+- Stay consistent with coding practice
+- Build confidence in real-world problem solving
+- Document my learning journey as a front-end engineer
 
-- Gregorian Chant and Praise God
+## 🔄 Ongoing Updates
+
+This project is **continuously evolving** as I grow in my coding journey. New exercises, features, and improvements will be added regularly.
