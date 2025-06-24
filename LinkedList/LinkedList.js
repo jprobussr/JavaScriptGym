@@ -27,8 +27,8 @@ export default class LinkedList {
     let pre = this.head;
 
     while (temp.next) {
-        pre = temp;
-        temp = temp.next;
+      pre = temp;
+      temp = temp.next;
     }
 
     this.tail = pre;
@@ -36,8 +36,8 @@ export default class LinkedList {
     this.length--;
 
     if (this.length === 0) {
-        this.head = null;
-        this.tail = null;
+      this.head = null;
+      this.tail = null;
     }
 
     return temp;
