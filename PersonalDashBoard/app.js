@@ -60,13 +60,20 @@ navigator.geolocation.getCurrentPosition((position) => {
   )
     .then((res) => {
       if (!res.ok) {
-        throw Error('Weather data is not available.');
+        throw Error('Weather data not available');
       }
       return res.json();
     })
     .then((data) => {
-      const iconUrl = `httpp://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+      console.log(data);
+      const iconUrl = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
       console.log(iconUrl)
+      document.getElementById('weather').innerHTML = `
+      <img src=${iconUrl} />
+      <p>${Math.round(data.main.temp)}°</p>
+      <p>${data.name}</p>
+    `;
     })
+
     .catch((err) => console.error(err));
 });

@@ -68,12 +68,15 @@ div#crypto-top > span {
 }
 
 div#weather {
+  font-size: 3rem;
+  color: aliceblue;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   justify-content: flex-end;
   align-self: flex-start;
   margin-top: -20px;
+  margin-right: 3rem;
 }
 
 div#weather > img {
