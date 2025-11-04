@@ -14,6 +14,7 @@ This repo serves as a hands-on learning environment for:
 ## 🧠 What You'll Find
 
 - 💡 **Code exercises**: Syntax drills, DOM manipulation, local storage, and more
+
 - 🔧 **Mini projects**: Small apps built with HTML, CSS, and JavaScript
 
 ## 🚀 Goals
