@@ -1,44 +1,14 @@
-// Exercise 3 AltCaps
+// toTitleCase()
 
-const altCaps = str => {
-  let newStr = '';
-
-  for (let i = 0; i < str.length; i++) {
-    if (i % 2 === 0) {
-      newStr += str[i].toUpperCase();
-    } else {
-      newStr += str[i];
-    }
-  }
-  return newStr;
+const capitalizeWord = word => {
+  return word[0].toUpperCase() + word.slice(1);
 }
 
-console.log(altCaps('When you visit Murray, you should stop by.'));
+const toTitleCase = str => {
+  const sentenceArr = str.split(' ');
+  const capArr = sentenceArr.map(word => capitalizeWord(word));
+  return capArr.join(' ');
+}
 
-// Exercise 2 Whisper
-
-// const whisper = str => {
-//   if (str.endsWith('!')) {
-//     return 'shh...' + str.slice(0, -1).toLowerCase()
-//   }
-//   return 'shh...' + str.toLowerCase();
-// }
-
-// console.log(whisper('PLEASE RELAX. HAVE A NICE DAY!'));
-// console.log(whisper('MA\'AM, this is a Wendy\'s!'));
-
-// Exercise 1 Panic
-
-// const panic = (str) => {
-//   return str.split(' ').join('😱').toUpperCase() + '!';
-// };
-
-// console.log(panic("I'm almost out of coffee"));
-// console.log(panic('winter is cominggg'));
-// console.log(panic('Coffee'));
-
-// const panic = str => {
-//   return str.split(' ').join(' 😱 ').toUpperCase() + '!'
-// }
-
-// console.log(panic('never, just take a break.'));
+console.log(capitalizeWord("pumpkin"));
+console.log(toTitleCase("pumpkin pranced purposefully across the pond"));
