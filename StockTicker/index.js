@@ -5,7 +5,9 @@ setInterval(() => {
   renderStockTicker(stockData);
 }, 1500);
 
-function renderStockTicker(stockData) {
+let prevPrice = null;
+
+const renderStockTicker = (stockData) => {
   const stockDisplayName = document.getElementById('name');
   const stockDisplaySymbol = document.getElementById('symbol');
   const stockDisplayPrice = document.getElementById('price');
@@ -14,8 +16,24 @@ function renderStockTicker(stockData) {
 
   const { name, sym, price, time } = stockData;
 
+  const priceDirectionIcon =
+    price > prevPrice
+      ? 'green.svg'
+      : price < prevPrice
+      ? 'red.svg'
+      : 'grey.svg';
+
+  const priceIconElement = document.createElement('img');
+  priceIconElement.src = `svg/${priceDirectionIcon}`;
+  priceIconElement.alt = 'Price direction icon';
+
+  stockDisplayPriceIcon.innerHTML = '';
+  stockDisplayPriceIcon.appendChild(priceIconElement);
+
   stockDisplayName.innerText = name;
   stockDisplaySymbol.innerText = sym;
   stockDisplayPrice.innerText = price;
-  stockDisplayTime.innerText = time
-}
+  stockDisplayTime.innerText = time;
+
+  prevPrice = price;
+};
