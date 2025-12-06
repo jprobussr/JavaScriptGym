@@ -5,18 +5,22 @@ const list = document.getElementById('list');
 const shoppingList = [];
 
 addItemBtn.addEventListener('click', () => {
-  shoppingList.push(itemInput.value);
-  render();
-  itemInput.value = '';
+  if (shoppingList.includes(itemInput.value)) {
+    console.log('No duplicates.');
+  } else {
+    shoppingList.push(itemInput.value);
+    render();
+    itemInput.value = '';
+  }
 });
 
 const render = () => {
   let html = '';
+
   for (let item of shoppingList) {
     html += `<li class='list-item'>${item}</li>`;
   }
   list.innerHTML = html;
 };
-
 
 render();
