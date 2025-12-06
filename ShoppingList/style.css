@@ -1,0 +1,93 @@
+/* Reset + Base */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  font-family: 'Karla', sans-serif;
+  background-color: #070220; /* deep dark purple */
+  color: #e4e8ff; /* soft cool white */
+}
+
+/* Headings */
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #f0f4ff;
+}
+
+/* Layout */
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 260px;
+  margin: 40px auto 0;
+}
+
+/* List + Input Styling */
+.list-item,
+input[type='text'] {
+  border-radius: 6px;
+}
+
+.list-item {
+  border: 2px solid #7dd3fc; /* sky blue accent */
+  background-color: #0e062f; /* slightly lighter dark */
+  padding: 10px 14px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+/* Input */
+input[type='text'] {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #3f3cbb; /* purple accent border */
+  background-color: #100836;
+  color: #e4e8ff;
+}
+
+input[type='text']::placeholder {
+  color: #9ca3af;
+}
+
+/* Label floating style (fixed) */
+label {
+  font-size: 14px;
+  margin-left: 10px;
+  padding: 0 5px;
+  background-color: #10062f0f;
+  margin-bottom: 0.2em;
+  position: relative;
+  top: 12px;
+  width: auto;
+  z-index: 10;
+  color: #c7d2fe;
+}
+
+/* Button */
+button {
+  width: 60%;
+  margin: 10px auto 0;
+  padding: 10px 17px;
+  cursor: pointer;
+  background-color: #312e81; /* deep indigo */
+  color: #f9f9ff;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: 0.2s ease;
+}
+
+button:hover {
+  background-color: #4338ca; /* brighter purple */
+}
