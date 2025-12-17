@@ -15,16 +15,27 @@ export default class LinkedList {
     }
   }
 
-  printList() {
-    let currentNode = this.head;
-    let output = '<head> ';
-
-    while (currentNode !== null) {
-      output += currentNode.data + ' ';
-      currentNode = currentNode.getNextNode();
+  removeHead() {
+    if (!this.head) {
+      return null;
     }
 
-    output += '<tail>';
+    const removedHead = this.head;
+    this.head = removedHead.getNextNode();
+    removedHead.setNextNode(null);
+
+    return removedHead;
+  }
+
+  printList() {
+    let currentNode = this.head;
+    let output = 'Head: ';
+
+    while (currentNode !== null) {
+      output += `${currentNode.data} -> `;
+      currentNode = currentNode.getNextNode();
+    }
+    output += 'null';
     console.log(output);
   }
 }

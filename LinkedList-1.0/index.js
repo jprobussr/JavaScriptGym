@@ -10,3 +10,7 @@ list.addToHead('Sleep');
 list.addToHead('Repeat');
 
 list.printList();
+
+const wordRemoved = list.removeHead();
+console.log(`${wordRemoved.data}: was removed.`);
+list.printList();
