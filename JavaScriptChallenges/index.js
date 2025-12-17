@@ -70,33 +70,39 @@
 
 // Emojify
 
-const emojis = {
-  smile: '😊',
-  angry: '😠',
-  party: '🎉',
-  heart: '💜',
-  cat: '🐱',
-  dog: '🐕',
-};
+// const emojis = {
+//   smile: '😊',
+//   angry: '😠',
+//   party: '🎉',
+//   heart: '💜',
+//   cat: '🐱',
+//   dog: '🐕',
+// };
 
-const emojifiedWord = (word) => {
-  if (!word.startsWith(':') || !word.endsWith(':')) {
-    return word;
-  }
+// const emojifiedWord = word => {
+//   if (!word.startsWith(':') || !word.endsWith(':')) {
+//     return word;
+//   }
 
-  const key = word.slice(1, -1);
+//   const key = word.slice(1, -1);
 
-  if (emojis[key]) {
-    return emojis[key];
-  }
+//   if (emojis[key]) {
+//     return emojis[key];
+//   }
+//   return key;
+// }
 
-  return key;
-};
+// const emojifyPhrase = phrase => {
+//   const words = phrase.split(' ');
+//   const emojifiedWords = words.map((word) => emojifiedWord(word));
+//   return emojifiedWords.join(' ');
+// }
 
-const emojifyPhrase = phrase => {
-    const words = phrase.split(' ');
-    const emojifiedWords = words.map(word => emojifiedWord(word));
-    return emojifiedWords.join(' ');
-}
-console.log(emojifyPhrase("I :heart: my :cat:"));
-console.log(emojifyPhrase("I :heart: my :elephant:"));
+// console.log(emojifyPhrase("I :heart: my :cat:"));
+// console.log(emojifyPhrase("I :heart: my :elephant:"));
+
+// console.log('I :heart: my :cat:');
+// console.log(emojifiedWord('ghost'));
+// console.log(emojifiedWord('hello'));
+// console.log(emojifiedWord(':heart:'));
+// console.log(emojifiedWord(':cat:'));
