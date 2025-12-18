@@ -109,15 +109,71 @@
 
 // Anagram
 
-const isAnagram = (str1, str2) => {
-  if (str1.length !== str2.length) return false;
+// const isAnagram = (str1, str2) => {
+//   if (str1.length !== str2.length) {
+//     return false;
+//   }
 
-  const newStr1 = str1.split('').sort().join('');
-  const newStr2 = str2.split('').sort().join('');
+//   const newStr1 = str1.split('').sort().join('');
+//   const newStr2 = str2.split('').sort().join('');
 
-  return newStr1 === newStr2;
-};
+//   return newStr1 === newStr2;
+// }
 
-console.log(isAnagram('inch', 'chin'));
-console.log(isAnagram('tac', 'cat'));
-console.log(isAnagram('build', 'child'));
+//  console.log(isAnagram('silent', 'listen'));
+//  console.log(isAnagram('hello', 'world'));
+
+// const title = ':htraE no od ot ffutS';
+// const messages = [
+//   'maerc eci yrT',
+//   'rewoT leffiE tisiV',
+//   'noom eht ot snamuh etacoleR',
+//   'egrahc ni stac tuP',
+// ];
+
+// const reverseString = (str) => {
+//   return str.split('').reverse().join('');
+// };
+
+// console.log(reverseString(title));
+
+// const reverseStringInArray = (arr) => {
+//   return arr.map((item) => reverseString(item));
+// };
+
+// console.log(reverseStringInArray(messages));
+
+// reverseStringInArray(messages).forEach((msg) => console.log(msg));
+
+// const reverseStringManual = str => {
+//   let reversed = '';
+//   for (let i = str.length - 1; i >= 0; i--) {
+//     reversed += str[i];
+//   }
+//   return reversed;
+// }
+
+// console.log(reverseString(title) === reverseStringManual(title))
+
+// const reverseString = (str) => {
+//   return str.split('').reverse().join('');
+// }
+
+// const reverseStringInArray = arr => {
+//   return arr.map((item) => reverseString(item));
+// }
+
+// console.log(reverseStringInArray(messages));
+
+// reverseStringInArray(messages).forEach((msg) => console.log(msg));
+
+// const reverseStringManual = str => {
+//   let reversed = '';
+
+//   for (let i = str.length - 1; i >= 0; i--) {
+//     reversed += str[i];
+//   }
+//   return reversed;
+// }
+
+// console.log(reverseStringManual('developer'));
