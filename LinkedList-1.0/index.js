@@ -1,14 +1,12 @@
-
-import LinkedList from "./LinkedList.js";
+import LinkedList from './LinkedList.js';
 
 const list = new LinkedList();
 
-list.addToHead('work')
-list.addToHead('code')
-list.addToHead('repeat')
-list.printList()
+list.addToHead('Car 1');
 
-const removedWord = list.removeHead();
-console.log(`${removedWord.data} was removed from the list.`);
-list.printList()
+list.addToHead('Car 2');
+
+
+list.printList();
+
 
