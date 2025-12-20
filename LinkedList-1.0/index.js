@@ -6,6 +6,9 @@ list.addToHead('Car 1');
 
 list.addToHead('Car 2');
 
+list.addToTail('Back Car 1');
+list.addToTail('Back Car 2');
+
 
 list.printList();
 

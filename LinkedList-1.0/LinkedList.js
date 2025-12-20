@@ -15,6 +15,20 @@ export default class LinkedList {
     }
   }
 
+  addToTail(data) {
+    if (!this.head) {
+      this.head = new Node(data);
+      return;
+    }
+
+    let tail = this.head;
+    while (tail.getNextNode() !== null) {
+      tail = tail.getNextNode();
+    }
+
+    tail.setNextNode(new Node(data));
+  }
+
   printList() {
     let currentNode = this.head;
     let output = '<head> ';
