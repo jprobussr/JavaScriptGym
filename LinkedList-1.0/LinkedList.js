@@ -29,6 +29,19 @@ export default class LinkedList {
     tail.setNextNode(new Node(data));
   }
 
+  removeHead() {
+    if (!this.head) {
+      return null;
+    }
+
+    const removedHead = this.head;
+    this.head = removedHead.getNextNode();
+
+    removedHead.setNextNode(null);
+
+    return removedHead.data
+  }
+
   printList() {
     let currentNode = this.head;
     let output = '<head> ';
