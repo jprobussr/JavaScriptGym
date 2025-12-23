@@ -22,10 +22,10 @@ export default class LinkedList {
     }
 
     let tail = this.head;
+
     while (tail.getNextNode() !== null) {
       tail = tail.getNextNode();
     }
-
     tail.setNextNode(new Node(data));
   }
 
@@ -36,15 +36,14 @@ export default class LinkedList {
 
     const removedHead = this.head;
     this.head = removedHead.getNextNode();
-
     removedHead.setNextNode(null);
 
-    return removedHead.data
+    return removedHead.data;
   }
 
   printList() {
     let currentNode = this.head;
-    let output = '<head> ';
+    let output = 'Head: ';
 
     while (currentNode !== null) {
       output += `${currentNode.data} -> `;
