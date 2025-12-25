@@ -5,7 +5,7 @@ export default class Node {
   }
 
   setNextNode(node) {
-    this.next  = node;
+    this.next = node;
   }
 
   getNextNode() {
