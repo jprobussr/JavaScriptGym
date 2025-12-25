@@ -1,15 +1,16 @@
-const isPalindrome = str => {
-  let newReverseString = '';
+const password = '9338dsabbbadjdjdj2sdfdfdf282ff8fdsd888ss8cfgfg332q23';
 
-  for (let i = str.length - 1; i >= 0; i--) {
-    newReverseString += str[i];
+const removeDuplicateStrings = (chars) => {
+  let duplicatesRemoved = '';
+
+  for (let i = 0; i < chars.length; i++) {
+    if (!duplicatesRemoved.includes(chars[i])) {
+      duplicatesRemoved += chars[i];
+    }
   }
 
-  return newReverseString === str;
-}
+  return duplicatesRemoved;
+};
 
-console.log(isPalindrome("abba"));
-console.log(isPalindrome("civic"));
-console.log(isPalindrome("octopus"));
-console.log(isPalindrome("pumpkins"));
-console.log(isPalindrome("madam"));
+
+console.log(removeDuplicateStrings(password));
