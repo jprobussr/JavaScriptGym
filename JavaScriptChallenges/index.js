@@ -1,16 +1,22 @@
-const password = '9338dsabbbadjdjdj2sdfdfdf282ff8fdsd888ss8cfgfg332q23';
+const gameNightFood = {
+    "🍕 pizza": 30, 
+    "🌮 tacos": 10, 
+    "🥗 salads": 7,
+    "🍝 pasta": 5
+}
 
-const removeDuplicateStrings = (chars) => {
-  let duplicatesRemoved = '';
+const findTheWinner = obj => {
+  let highestTotalVotes = 0;
+  let winningItem = '';
 
-  for (let i = 0; i < chars.length; i++) {
-    if (!duplicatesRemoved.includes(chars[i])) {
-      duplicatesRemoved += chars[i];
+  for (let food in obj) {
+    if (obj[food] > highestTotalVotes) {
+      highestTotalVotes = obj[food];
+
+      winningItem = food;
     }
   }
+  return `The winner is ${winningItem} with ${highestTotalVotes} votes!`
+}
 
-  return duplicatesRemoved;
-};
-
-
-console.log(removeDuplicateStrings(password));
+console.log(findTheWinner(gameNightFood));
