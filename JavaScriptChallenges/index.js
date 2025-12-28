@@ -1,22 +1,15 @@
-const gameNightFood = {
-    "🍕 pizza": 30, 
-    "🌮 tacos": 10, 
-    "🥗 salads": 7,
-    "🍝 pasta": 5
-}
+import data from './data.js';
 
-const findTheWinner = obj => {
-  let highestTotalVotes = 0;
-  let winningItem = '';
+const getFreePodcasts = (data) => {
+  return data
+    .filter((item) => item.paid === false)
+    .map((podcast) => {
+      return {
+        title: podcast.title,
+        rating: podcast.rating,
+        paid: podcast.paid,
+      };
+    });
+};
 
-  for (let food in obj) {
-    if (obj[food] > highestTotalVotes) {
-      highestTotalVotes = obj[food];
-
-      winningItem = food;
-    }
-  }
-  return `The winner is ${winningItem} with ${highestTotalVotes} votes!`
-}
-
-console.log(findTheWinner(gameNightFood));
+console.log(getFreePodcasts(data));
