@@ -11,4 +11,5 @@ export default class Node {
   getNextNode() {
     return this.next;
   }
-}
+};
+

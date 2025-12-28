@@ -5,3 +5,5 @@ const list = new LinkedList();
 list.addToHead('Flour');
 list.addToHead('Milk');
 console.log(list);
+
+list.printList();

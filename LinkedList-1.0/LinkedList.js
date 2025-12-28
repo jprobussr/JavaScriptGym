@@ -6,11 +6,23 @@ export default class LinkedList {
   }
 
   addToHead(data) {
-    const newNode = new Node(data);
+    const newHead = new Node(data);
     const currentHead = this.head;
 
-    newNode.setNextNode(currentHead);
+    newHead.setNextNode(currentHead);
+    this.head = newHead;
+  }
 
-    this.head = newNode;
+  printList() {
+    let currentNode = this.head; 
+    let output = 'Head: ';
+
+    while (currentNode !== null) {
+      output += `${currentNode.data} -> `;
+      currentNode = currentNode.getNextNode();
+    }
+
+    output += 'null';
+    console.log(output);
   }
 }
