@@ -15,10 +15,9 @@ export default class LinkedList {
 
   removeHead() {
     if (!this.head) return null;
-
     const removedHead = this.head;
-    this.head = removedHead.getNextNode();
 
+    this.head = removedHead.getNextNode();
     removedHead.setNextNode(null);
 
     return removedHead;
