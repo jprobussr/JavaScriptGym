@@ -1,15 +1,14 @@
-import data from './data.js';
+import products from './data.js';
 
-const getFreePodcasts = (data) => {
+const getSaleItems = (data) => {
   return data
-    .filter((item) => item.paid === false)
-    .map((podcast) => {
+    .filter((product) => product.type === 'sweet')
+    .map((item) => {
       return {
-        title: podcast.title,
-        rating: podcast.rating,
-        paid: podcast.paid,
+        item: item.item,
+        price: item.price,
       };
     });
 };
 
-console.log(getFreePodcasts(data));
+console.log(getSaleItems(products));
