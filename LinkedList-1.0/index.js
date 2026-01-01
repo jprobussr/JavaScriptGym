@@ -5,7 +5,8 @@ const list = new LinkedList();
 list.addToHead('Flour');
 list.addToHead('Bacon');
 list.addToHead('Milk');
+list.addToTail('Sugar');
 list.removeHead();
-console.log(list);
+
 
 list.printList();

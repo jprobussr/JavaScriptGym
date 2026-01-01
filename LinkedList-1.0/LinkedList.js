@@ -13,6 +13,21 @@ export default class LinkedList {
     this.head = newHead;
   }
 
+  addToTail(data) {
+    const newNode = new Node(data);
+    if (!this.head) {
+      this.head = newNode;
+      return newNode;
+    }
+
+    let tail = this.head;
+    while (tail.getNextNode() !== null) {
+      tail = tail.getNextNode();
+    }
+    tail.setNextNode(newNode);
+    return newNode;
+  }
+
   removeHead() {
     if (!this.head) return null;
     const removedHead = this.head;
