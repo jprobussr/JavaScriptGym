@@ -1,14 +1,11 @@
 import products from './data.js';
 
-const getSaleItems = (data) => {
-  return data
-    .filter((product) => product.type === 'sweet')
-    .map((item) => {
-      return {
-        item: item.item,
-        price: item.price,
-      };
-    });
+const sortProducts = (data) => {
+  return data.sort((a, b) => {
+    return b.price - a.price;
+  });
 };
 
-console.log(getSaleItems(products));
+const cheapList = sortProducts(products);
+
+cheapList.forEach(item => console.log(item.product, item.price));
