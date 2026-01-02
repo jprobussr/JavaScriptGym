@@ -2,11 +2,11 @@ import LinkedList from './LinkedList.js';
 
 const list = new LinkedList();
 
-list.addToHead('Flour');
-list.addToHead('Bacon');
-list.addToHead('Milk');
-list.addToTail('Sugar');
-list.removeHead();
-
+list.addToHead('Eggs');
+list.addToHead('Peppers');
+list.addToTail('Sour Dough');
+list.removeHead()
 
 list.printList();
+
+

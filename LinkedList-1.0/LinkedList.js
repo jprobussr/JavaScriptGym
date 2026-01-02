@@ -8,45 +8,46 @@ export default class LinkedList {
   addToHead(data) {
     const newHead = new Node(data);
     const currentHead = this.head;
-
-    newHead.setNextNode(currentHead);
     this.head = newHead;
+
+    if (currentHead) {
+      this.head.setNextNode(currentHead);
+    }
   }
 
   addToTail(data) {
-    const newNode = new Node(data);
     if (!this.head) {
-      this.head = newNode;
-      return newNode;
+      this.head = new Node(data);
+      return;
     }
 
     let tail = this.head;
     while (tail.getNextNode() !== null) {
       tail = tail.getNextNode();
     }
-    tail.setNextNode(newNode);
-    return newNode;
+    tail.setNextNode(new Node(data));
   }
 
   removeHead() {
-    if (!this.head) return null;
+    if (!this.head) {
+      return null;
+    }
     const removedHead = this.head;
-
     this.head = removedHead.getNextNode();
-    removedHead.setNextNode(null);
 
+    removedHead.setNextNode(null);
     return removedHead;
   }
 
   printList() {
     let currentNode = this.head;
-    let output = 'Head: ';
+    let output = '<head> ';
 
     while (currentNode !== null) {
       output += `${currentNode.data} -> `;
       currentNode = currentNode.getNextNode();
     }
-    output += 'null';
+    output += '<tail>';
     console.log(output);
   }
 }
