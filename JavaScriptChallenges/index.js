@@ -1,12 +1,14 @@
-import products from './data.js';
+import podcasts from './data.js';
 
-const sortProducts = (data) => {
-  return data.sort((a, b) => {
-    return a.price - b.price;
+const sortByDuration = (data, flightLength) => {
+  if (flightLength > 60) {
+    data.sort((a, b) => b.duration - a.duration);
+  } else {
+    data.sort((a, b) => a.duration - b.duration);
+  }
+  data.forEach(({ title, duration }, index) => {
+    console.log(`${index + 1}. ${title}, ${duration} minutes`);
   });
 };
 
-const list = sortProducts(products);
-
-list.forEach((item) => console.log(item.price, item.product));
-
+sortByDuration(podcasts, 122);
