@@ -5,21 +5,19 @@ export default class Node {
     this.prev = null;
   }
 
-  // Next 
-  getNextNode() {
-    return this.next;
-  }
-
   setNextNode(node) {
     this.next = node;
   }
 
-  // prev 
-  getPrevNode() {
-    return this.prev;
+  getNextNode() {
+    return this.next;
   }
 
   setPrevNode(node) {
     this.prev = node;
+  }
+
+  getPrevNode() {
+    return this.prev;
   }
 }

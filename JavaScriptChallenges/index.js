@@ -2,10 +2,11 @@ import products from './data.js';
 
 const sortProducts = (data) => {
   return data.sort((a, b) => {
-    return b.price - a.price;
+    return a.price - b.price;
   });
 };
 
-const cheapList = sortProducts(products);
+const list = sortProducts(products);
 
-cheapList.forEach(item => console.log(item.product, item.price));
+list.forEach((item) => console.log(item.price, item.product));
+
