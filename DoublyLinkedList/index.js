@@ -1,14 +1,7 @@
-import Node from './Node.js';
+import DoublyLinkedList from "./DoublyLinkedList.js";
 
-const a = new Node('A');
-const b = new Node('B');
 
-a.setNextNode(b);
-b.setPrevNode(a);
+const list = new DoublyLinkedList();
 
-console.log(a.data);
-console.log(a.getNextNode().data);
-console.log(b.getPrevNode().data);
-
-console.log(a.getPrevNode());
-console.log(b.getNextNode());
+list.addToHead('Front');
+console.log(list)
