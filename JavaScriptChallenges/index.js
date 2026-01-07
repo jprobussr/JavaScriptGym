@@ -1,19 +1,16 @@
 import podcasts from './data.js';
 
-const awards = ['🏆', '⭐', '💎', '🥇', '👑'];
+const createDescription = (data) => {
+  return data.map((podcast) => {
+    const { title, duration, genre, hosts } = podcast;
 
-const getHosts = (data) => {
-  return data.reduce((acc, curr) => {
-    return acc.concat(curr.hosts);
-  }, []);
-};
-
-const assignAwards = (data) => {
-  const hosts = getHosts(data);
-  return hosts.map((host) => {
-    const randIndex = Math.floor(Math.random() * awards.length);
-    return `${awards[randIndex]} ${host}`;
+    return {
+      ...podcast,
+      description: `${title} is a ${duration} minute ${genre} podcast hosted 
+            by ${hosts[0]}.`,
+    };
   });
 };
 
-console.log(assignAwards(podcasts));
+
+console.log(createDescription(podcasts));

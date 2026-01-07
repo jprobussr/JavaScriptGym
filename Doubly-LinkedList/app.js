@@ -1,20 +1,12 @@
-const DoublyLinkedList = require('./DoublyLinkList.js');
+import DoublyLinkedList from './DoublyLinkList.js';
 
-const subway = new DoublyLinkedList();
-
-subway.addToHead('TimesSquare');
-subway.addToHead('Grand Central');
-subway.addToHead('Central Park');
-
-subway.printList();
-
-subway.addToTail('Penn Station');
-subway.printList();
-
-subway.removeHead();
-subway.removeTail();
-subway.printList();
-subway.removeHead();
-
-subway.removeByData('TimesSquare');
-subway.printList();
+const testList = new DoublyLinkedList();
+testList.addToHead(9);
+testList.removeTail();
+testList.addToTail(8);
+testList.addToTail(2);
+testList.removeHead();
+testList.addToTail(4);
+testList.removeByData(9);
+testList.removeHead();
+console.log(testList.head.data);
