@@ -42,7 +42,6 @@
 // pattern = /hello/i;
 // console.log(pattern.test(text)); // true
 
-
 // /* ----------------------------------
 // LESSON 2 — CHARACTER MATCHING
 // ---------------------------------- */
@@ -74,7 +73,6 @@
 // pattern = /[bc]at/;
 // console.log(pattern.test(text)); // false
 
-
 // /*
 // ----------------------------------
 // PATTERN MEANINGS (IMPORTANT)
@@ -94,3 +92,85 @@
 // - Regex is case-sensitive unless told otherwise
 // - .test() always returns true or false
 // */
+
+/*
+=====================================
+REGEX PRACTICE — LESSON 3
+ANCHORS (^ and $)
+=====================================
+
+Anchors do NOT match characters.
+They match POSITIONS in the string.
+
+^  → start of string
+$  → end of string
+
+Used for validation, not searching.
+*/
+
+/* ----------------------------------
+START ANCHOR ^
+---------------------------------- */
+
+let text = 'cat food';
+let pattern = /^cat/;
+
+console.log(pattern.test(text)); // true
+
+text = 'my cat food';
+pattern = /^cat/;
+
+console.log(pattern.test(text)); // false
+
+/* ----------------------------------
+END ANCHOR $
+---------------------------------- */
+
+text = 'hot dog';
+pattern = /dog$/;
+
+console.log(pattern.test(text)); // true
+
+text = 'dog park';
+pattern = /dog$/;
+
+console.log(pattern.test(text)); // false
+
+/* ----------------------------------
+EXACT MATCH (^ and $ together)
+---------------------------------- */
+
+text = 'yes';
+pattern = /^yes$/;
+
+console.log(pattern.test(text)); // true
+
+text = 'yes!';
+pattern = /^yes$/;
+
+console.log(pattern.test(text)); // false
+
+/* ----------------------------------
+WHY ANCHORS MATTER
+---------------------------------- */
+
+// Searching (matches anywhere)
+pattern = /\d/;
+console.log(pattern.test('abc1xyz')); // true
+
+// Validation (exact match)
+pattern = /^\d$/;
+console.log(pattern.test('1')); // true
+console.log(pattern.test('abc1xyz')); // false
+
+/*
+----------------------------------
+KEY TAKEAWAYS
+----------------------------------
+
+/cat/     → matches 'cat' anywhere
+/^cat$/   → matches ONLY 'cat'
+
+Anchors prevent false positives.
+Always use anchors for validation.
+*/
