@@ -112,65 +112,138 @@ Used for validation, not searching.
 START ANCHOR ^
 ---------------------------------- */
 
-let text = 'cat food';
-let pattern = /^cat/;
+// let text = 'cat food';
+// let pattern = /^cat/;
 
-console.log(pattern.test(text)); // true
+// console.log(pattern.test(text)); // true
 
-text = 'my cat food';
-pattern = /^cat/;
+// text = 'my cat food';
+// pattern = /^cat/;
 
-console.log(pattern.test(text)); // false
+// console.log(pattern.test(text)); // false
 
-/* ----------------------------------
-END ANCHOR $
----------------------------------- */
+// /* ----------------------------------
+// END ANCHOR $
+// ---------------------------------- */
 
-text = 'hot dog';
-pattern = /dog$/;
+// text = 'hot dog';
+// pattern = /dog$/;
 
-console.log(pattern.test(text)); // true
+// console.log(pattern.test(text)); // true
 
-text = 'dog park';
-pattern = /dog$/;
+// text = 'dog park';
+// pattern = /dog$/;
 
-console.log(pattern.test(text)); // false
+// console.log(pattern.test(text)); // false
 
-/* ----------------------------------
-EXACT MATCH (^ and $ together)
----------------------------------- */
+// /* ----------------------------------
+// EXACT MATCH (^ and $ together)
+// ---------------------------------- */
 
-text = 'yes';
-pattern = /^yes$/;
+// text = 'yes';
+// pattern = /^yes$/;
 
-console.log(pattern.test(text)); // true
+// console.log(pattern.test(text)); // true
 
-text = 'yes!';
-pattern = /^yes$/;
+// text = 'yes!';
+// pattern = /^yes$/;
 
-console.log(pattern.test(text)); // false
+// console.log(pattern.test(text)); // false
 
-/* ----------------------------------
-WHY ANCHORS MATTER
----------------------------------- */
+// /* ----------------------------------
+// WHY ANCHORS MATTER
+// ---------------------------------- */
 
-// Searching (matches anywhere)
-pattern = /\d/;
-console.log(pattern.test('abc1xyz')); // true
+// // Searching (matches anywhere)
+// pattern = /\d/;
+// console.log(pattern.test('abc1xyz')); // true
 
-// Validation (exact match)
-pattern = /^\d$/;
-console.log(pattern.test('1')); // true
-console.log(pattern.test('abc1xyz')); // false
+// // Validation (exact match)
+// pattern = /^\d$/;
+// console.log(pattern.test('1')); // true
+// console.log(pattern.test('abc1xyz')); // false
+
+// /*
+// ----------------------------------
+// KEY TAKEAWAYS
+// ----------------------------------
+
+// /cat/     → matches 'cat' anywhere
+// /^cat$/   → matches ONLY 'cat'
+
+// Anchors prevent false positives.
+// Always use anchors for validation.
+// */
 
 /*
-----------------------------------
-KEY TAKEAWAYS
-----------------------------------
+=====================================
+REGEX PRACTICE — LESSON 5
+GROUPING & ALTERNATION
+=====================================
 
-/cat/     → matches 'cat' anywhere
-/^cat$/   → matches ONLY 'cat'
+Grouping ( ) allows multiple characters
+to be treated as a single unit.
 
-Anchors prevent false positives.
-Always use anchors for validation.
+Alternation | means OR.
+
+Grouping is REQUIRED when using
+alternation with anchors.
 */
+
+/* ----------------------------------
+GROUPING WITH QUANTIFIERS
+---------------------------------- */
+
+// console.log(/(ha)+/.test("ha"));       // true
+// console.log(/(ha)+/.test("haha"));     // true
+// console.log(/(ha)+/.test("hahaha"));   // true
+// console.log(/(ha)+/.test("haaa"));     // false
+
+
+// /* ----------------------------------
+// NO GROUPING (COMPARE BEHAVIOR)
+// ---------------------------------- */
+
+// console.log(/ha+/.test("haaa"));       // true
+// console.log(/ha+/.test("haha"));       // true (matches "ha" at start)
+
+
+// /* ----------------------------------
+// ALTERNATION (OR)
+// ---------------------------------- */
+
+// console.log(/cat|dog/.test("I have a dog")); // true
+// console.log(/cat|dog/.test("I have a bird"));// false
+
+
+// /* ----------------------------------
+// GROUPING + ANCHORS (CORRECT)
+// ---------------------------------- */
+
+// console.log(/^(cat|dog)$/.test("cat"));  // true
+// console.log(/^(cat|dog)$/.test("dog"));  // true
+// console.log(/^(cat|dog)$/.test("bird")); // false
+
+
+// /* ----------------------------------
+// ALTERNATION WITHOUT GROUPING (BUG)
+// ---------------------------------- */
+
+// console.log(/^cat|dog$/.test("my dog")); // true (BUGGY PATTERN)
+
+
+// /*
+// ----------------------------------
+// KEY TAKEAWAYS
+// ----------------------------------
+
+// (cat|dog)  → choose one option as a unit
+// ^ and $    → validate the entire string
+// Without grouping, | breaks intent
+
+// Grouping controls:
+// - what repeats
+// - what is optional
+// - what is chosen
+// */
+
