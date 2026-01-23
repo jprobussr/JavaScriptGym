@@ -1,61 +1,70 @@
 // /*
-// =====================================
-// REGEX PRACTICE — LESSONS 1 & 2
-// =====================================
+// =========================================================
+// REGEX LESSON PLAN (JavaScript) — prac.js
+// =========================================================
 
-// Regex = pattern matching for text
-// Not logic, not loops, not conditionals
+// GOAL:
+// Learn regex step-by-step for real front-end use:
+// - Understand how regex works (matching)
+// - Use anchors for validation
+// - Use quantifiers for length/repetition
+// - Use grouping and alternation for options
+// - Apply practical patterns for common UI inputs
 
-// Structure:
-// /pattern/flags
+// HOW TO PRACTICE:
+// - Change ONE thing at a time
+// - Predict true/false BEFORE running
+// - Use .test() to keep it simple
+// - Use ^ and $ anytime you mean "validate the whole input"
 
-// We use .test() to answer:
-// "Does this pattern exist in this string?"
-// (true or false)
+// =========================================================
+// LESSON 1 — FUNDAMENTALS (Literal matching, .test(), flags)
+// =========================================================
+
+// Regex format: /pattern/flags
+// .test(string) -> true/false (pattern exists somewhere unless anchored)
+
 // */
 
-// /* ----------------------------------
-// LESSON 1 — REGEX FUNDAMENTALS
-// ---------------------------------- */
-
-// // Base text
+// // Lesson 1 examples
 // let text = "hello world";
-
-// // Literal match
 // let pattern = /world/;
 // console.log(pattern.test(text)); // true
 
-// // Match full phrase
 // pattern = /hello world/;
 // console.log(pattern.test(text)); // true
 
-// // Match something that does NOT exist
 // pattern = /banana/;
 // console.log(pattern.test(text)); // false
 
-// // Case sensitivity (default)
 // text = "Hello world";
 // pattern = /hello/;
-// console.log(pattern.test(text)); // false
+// console.log(pattern.test(text)); // false (case-sensitive)
 
-// // Ignore case flag (i)
 // pattern = /hello/i;
-// console.log(pattern.test(text)); // true
+// console.log(pattern.test(text)); // true (ignore case)
 
-// /* ----------------------------------
-// LESSON 2 — CHARACTER MATCHING
-// ---------------------------------- */
+// /*
+// =========================================================
+// LESSON 2 — CHARACTER MATCHING (., \d, \w, [ ])
+// =========================================================
 
-// // Dot (.) = any ONE character
+// .   -> any ONE character
+// \d  -> any digit 0–9
+// \w  -> word char (letters, digits, underscore)
+// [ ] -> allowed set of characters
+
+// */
+
+// // Lesson 2 examples
 // text = "cat";
 // pattern = /c.t/;
 // console.log(pattern.test(text)); // true
 
 // text = "cart";
 // pattern = /c.t/;
-// console.log(pattern.test(text)); // false (dot only matches one char)
+// console.log(pattern.test(text)); // false
 
-// // Digit class \d (any number 0–9)
 // text = "I have 7 apples";
 // pattern = /\d/;
 // console.log(pattern.test(text)); // true
@@ -64,7 +73,6 @@
 // pattern = /\d/;
 // console.log(pattern.test(text)); // false
 
-// // Character set [ ] (allowed characters)
 // text = "cat";
 // pattern = /[bc]at/;
 // console.log(pattern.test(text)); // true
@@ -74,176 +82,183 @@
 // console.log(pattern.test(text)); // false
 
 // /*
-// ----------------------------------
-// PATTERN MEANINGS (IMPORTANT)
-// ----------------------------------
+// =========================================================
+// LESSON 3 — ANCHORS (^ and $) for VALIDATION
+// =========================================================
 
-// /c.t/
-// - matches:
-//   c + any ONE character + t
-// - examples:
-//   cat ✅
-//   cot ✅
-//   cart ❌
+// ^ -> start of string
+// $ -> end of string
+// ^...$ -> exact match (whole input)
 
-// Key rules:
-// - Regex scans left → right
-// - Spaces are characters
-// - Regex is case-sensitive unless told otherwise
-// - .test() always returns true or false
 // */
 
-/*
-=====================================
-REGEX PRACTICE — LESSON 3
-ANCHORS (^ and $)
-=====================================
-
-Anchors do NOT match characters.
-They match POSITIONS in the string.
-
-^  → start of string
-$  → end of string
-
-Used for validation, not searching.
-*/
-
-/* ----------------------------------
-START ANCHOR ^
----------------------------------- */
-
-// let text = 'cat food';
-// let pattern = /^cat/;
-
-// console.log(pattern.test(text)); // true
-
-// text = 'my cat food';
+// // Lesson 3 examples
+// text = "cat food";
 // pattern = /^cat/;
-
-// console.log(pattern.test(text)); // false
-
-// /* ----------------------------------
-// END ANCHOR $
-// ---------------------------------- */
-
-// text = 'hot dog';
-// pattern = /dog$/;
-
 // console.log(pattern.test(text)); // true
 
-// text = 'dog park';
-// pattern = /dog$/;
-
+// text = "my cat food";
+// pattern = /^cat/;
 // console.log(pattern.test(text)); // false
 
-// /* ----------------------------------
-// EXACT MATCH (^ and $ together)
-// ---------------------------------- */
-
-// text = 'yes';
-// pattern = /^yes$/;
-
+// text = "hot dog";
+// pattern = /dog$/;
 // console.log(pattern.test(text)); // true
 
-// text = 'yes!';
-// pattern = /^yes$/;
-
+// text = "dog park";
+// pattern = /dog$/;
 // console.log(pattern.test(text)); // false
 
-// /* ----------------------------------
-// WHY ANCHORS MATTER
-// ---------------------------------- */
+// text = "yes";
+// pattern = /^yes$/;
+// console.log(pattern.test(text)); // true
 
-// // Searching (matches anywhere)
+// text = "yes!";
+// pattern = /^yes$/;
+// console.log(pattern.test(text)); // false
+
+// // Search vs validate (important)
 // pattern = /\d/;
-// console.log(pattern.test('abc1xyz')); // true
+// console.log(pattern.test("abc1xyz")); // true (searches anywhere)
 
-// // Validation (exact match)
 // pattern = /^\d$/;
-// console.log(pattern.test('1')); // true
-// console.log(pattern.test('abc1xyz')); // false
+// console.log(pattern.test("1"));       // true
+// console.log(pattern.test("abc1xyz")); // false (validation)
 
 // /*
-// ----------------------------------
-// KEY TAKEAWAYS
-// ----------------------------------
+// =========================================================
+// LESSON 4 — QUANTIFIERS (*, +, ?, {n}, {n,m})
+// =========================================================
 
-// /cat/     → matches 'cat' anywhere
-// /^cat$/   → matches ONLY 'cat'
+// *   -> zero or more
+// +   -> one or more
+// ?   -> zero or one (optional once)
+// {n} -> exactly n times
+// {n,m} -> between n and m times
 
-// Anchors prevent false positives.
-// Always use anchors for validation.
+// RULE:
+// Quantifiers apply ONLY to the thing immediately before them.
+
 // */
 
-/*
-=====================================
-REGEX PRACTICE — LESSON 5
-GROUPING & ALTERNATION
-=====================================
+// // Lesson 4 examples
+// text = "color";
+// pattern = /colou*r/;
+// console.log(pattern.test(text)); // true (u can appear 0 times)
 
-Grouping ( ) allows multiple characters
-to be treated as a single unit.
+// text = "colour";
+// pattern = /colou*r/;
+// console.log(pattern.test(text)); // true (u can appear 1 time)
 
-Alternation | means OR.
+// pattern = /go+/;
+// console.log(pattern.test("go"));   // true
+// console.log(pattern.test("goo"));  // true
+// console.log(pattern.test("g"));    // false (needs at least one o)
 
-Grouping is REQUIRED when using
-alternation with anchors.
-*/
+// pattern = /colou?r/;
+// console.log(pattern.test("color"));   // true
+// console.log(pattern.test("colour"));  // true
+// console.log(pattern.test("colouur")); // false (u only optional once)
 
-/* ----------------------------------
-GROUPING WITH QUANTIFIERS
----------------------------------- */
+// pattern = /^\d{3}$/;
+// console.log(pattern.test("123"));  // true
+// console.log(pattern.test("12"));   // false
+// console.log(pattern.test("1234")); // false
 
-// console.log(/(ha)+/.test("ha"));       // true
-// console.log(/(ha)+/.test("haha"));     // true
-// console.log(/(ha)+/.test("hahaha"));   // true
-// console.log(/(ha)+/.test("haaa"));     // false
+// pattern = /^\d{2,4}$/;
+// console.log(pattern.test("12"));    // true
+// console.log(pattern.test("1234"));  // true
+// console.log(pattern.test("1"));     // false
+// console.log(pattern.test("12345")); // false
 
-
-// /* ----------------------------------
-// NO GROUPING (COMPARE BEHAVIOR)
-// ---------------------------------- */
-
-// console.log(/ha+/.test("haaa"));       // true
-// console.log(/ha+/.test("haha"));       // true (matches "ha" at start)
-
-
-// /* ----------------------------------
-// ALTERNATION (OR)
-// ---------------------------------- */
-
-// console.log(/cat|dog/.test("I have a dog")); // true
-// console.log(/cat|dog/.test("I have a bird"));// false
-
-
-// /* ----------------------------------
-// GROUPING + ANCHORS (CORRECT)
-// ---------------------------------- */
-
-// console.log(/^(cat|dog)$/.test("cat"));  // true
-// console.log(/^(cat|dog)$/.test("dog"));  // true
-// console.log(/^(cat|dog)$/.test("bird")); // false
-
-
-// /* ----------------------------------
-// ALTERNATION WITHOUT GROUPING (BUG)
-// ---------------------------------- */
-
-// console.log(/^cat|dog$/.test("my dog")); // true (BUGGY PATTERN)
-
+// // Quantifier scope check
+// pattern = /\d\d+/; // one digit, then one or more digits (minimum 2 digits)
+// console.log(pattern.test("7"));    // false
+// console.log(pattern.test("70"));   // true
+// console.log(pattern.test("700"));  // true
 
 // /*
-// ----------------------------------
-// KEY TAKEAWAYS
-// ----------------------------------
+// =========================================================
+// LESSON 5 — GROUPING ( ) and ALTERNATION |
+// =========================================================
 
-// (cat|dog)  → choose one option as a unit
-// ^ and $    → validate the entire string
-// Without grouping, | breaks intent
+// ( ) -> treat multiple characters as one unit
+// |   -> OR (choice)
 
-// Grouping controls:
-// - what repeats
-// - what is optional
-// - what is chosen
+// IMPORTANT:
+// Use grouping with anchors when you mean exact options:
+// ^(cat|dog)$
+
 // */
+
+// // Lesson 5 examples
+// pattern = /(ha)+/;
+// console.log(pattern.test("ha"));     // true
+// console.log(pattern.test("haha"));   // true
+// console.log(pattern.test("haaa"));   // false
+
+// pattern = /ha+/;
+// console.log(pattern.test("haaa"));   // true
+// console.log(pattern.test("haha"));   // true (matches "ha" at start)
+
+// pattern = /cat|dog/;
+// console.log(pattern.test("I have a dog")); // true
+// console.log(pattern.test("I have a bird"));// false
+
+// pattern = /^(cat|dog)$/;
+// console.log(pattern.test("cat")); // true
+// console.log(pattern.test("dog")); // true
+// console.log(pattern.test("bird"));// false
+
+// // Classic bug without grouping
+// pattern = /^cat|dog$/;
+// console.log(pattern.test("my dog")); // true (means ^cat OR dog$)
+
+// /*
+// =========================================================
+// LESSON 6 — COMMON FRONT-END REGEX PATTERNS (Practical)
+// =========================================================
+
+// Front-end regex should be:
+// - readable
+// - safe
+// - "good enough" for UI checks
+// Backend should handle strict validation/security.
+
+// */
+
+// // Numbers only (required)
+// pattern = /^\d+$/;
+// console.log(pattern.test("123")); // true
+// console.log(pattern.test("12a")); // false
+// console.log(pattern.test(""));    // false
+
+// // OTP / PIN (exact length example: 6 digits)
+// pattern = /^\d{6}$/;
+// console.log(pattern.test("123456")); // true
+// console.log(pattern.test("12345"));  // false
+
+// // Username: letters/numbers/underscore, 3–16 chars
+// pattern = /^[a-zA-Z0-9_]{3,16}$/;
+// console.log(pattern.test("john_dev")); // true
+// console.log(pattern.test("jo"));       // false
+// console.log(pattern.test("john-dev")); // false
+
+// // Yes/No toggle (case-insensitive)
+// pattern = /^(yes|no)$/i;
+// console.log(pattern.test("yes")); // true
+// console.log(pattern.test("No"));  // true
+// console.log(pattern.test("maybe"));// false
+
+// // Simple name (UI guidance, not real identity validation)
+// pattern = /^[A-Z][a-z]+$/;
+// console.log(pattern.test("John")); // true
+// console.log(pattern.test("john")); // false
+
+// // Email (frontend sanity check only — keep it simple)
+// pattern = /^\S+@\S+\.\S+$/;
+// console.log(pattern.test("test@example.com")); // true
+// console.log(pattern.test("test@com"));         // false
+// console.log(pattern.test("test@.com"));        // false
+
 
