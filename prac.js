@@ -110,3 +110,4 @@
 // // validate("test@email.com");
 // // validate("test@email.com", "required");
 // validate("test@email.com", "required", "minLength", "emailFormat");
+

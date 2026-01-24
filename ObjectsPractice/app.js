@@ -31,4 +31,4 @@ let spaceship = {
   },
 };
 
-console.log(spaceship.crew['chief officer'].agree());
+console.log(spaceship.crew['chief officer'].agree())
