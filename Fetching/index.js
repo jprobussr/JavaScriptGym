@@ -21,18 +21,14 @@
 // getDogImage();
 
 const getDogImage = async () => {
-  const response = await fetch(
-    'https://apis.scrimba.com/dog.ceo/api/breeds/image/random',
-  );
-  const data = await response.json();
-  const imageElement = document.createElement('img');
+    const response = await fetch('https://apis.scrimba.com/dog.ceo/api/breeds/image/random');
+    const data =  await response.json();
 
-  imageElement.src = data.message;
-  imageElement.alt = 'A random dog image';
+    const imageElement = document.createElement('img');
+    imageElement.src = data.message;
+    imageElement.alt = 'A random dog image';
 
-  document.getElementById('img-container').appendChild(imageElement);
-
-  console.log(data);
-};
+    document.getElementById('img-container').appendChild(imageElement);
+}
 
 getDogImage();
