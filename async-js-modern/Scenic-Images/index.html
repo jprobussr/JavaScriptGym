@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Preloader</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="page">
+      <h1 class="title">Scenic Images</h1>
+
+      <section id="upload-container" class="upload" aria-live="polite">
+        <p class="upload__text">Ready to load images.</p>
+        <button id="submit-imgs" class="btn" type="button">Load images</button>
+      </section>
+
+      <section
+        id="img-container"
+        class="grid"
+        aria-label="Loaded scenic images"
+      ></section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
