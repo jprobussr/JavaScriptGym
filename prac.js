@@ -1,3 +1,55 @@
+const people = [
+  { name: 'Jack', hasPet: true },
+  { name: 'Jill', hasPet: false },
+  { name: 'Alice', hasPet: true },
+  { name: 'Bob', hasPet: false },
+];
+
+
+
+// const filterArray = (arr, callback) => {
+//     const resultingArray = [];
+
+//     for (let i = 0; i < arr.length; i++) {
+//         const currentItem = arr[i];
+
+//         const shouldKeep = callback(currentItem);
+
+//         if (shouldKeep) {
+//             resultingArray.push(currentItem);
+//         }
+//     }
+
+//     return resultingArray;
+// }
+
+// const peopleWithPets = filterArray(people, (person) => {
+//     return person.hasPet;
+// });
+
+// console.log(peopleWithPets)
+// const filterArray = (array, callback) => {
+//   const resultingArray = [];
+
+//   for (let i = 0; i < array.length; i++) {
+//     const currentItem = array[i];
+
+//     const shouldKeep = callback(currentItem);
+
+//     if (shouldKeep) {
+//       resultingArray.push(currentItem);
+//     }
+//   }
+
+//   return resultingArray;
+// };
+
+// const peopleWithPets = filterArray(people, (person) => {
+//     return person.hasPet === true;
+// });
+
+// console.log(peopleWithPets);
+
 // const logArgs = (first, ...rest) => {
 //     console.log('first:', first);
 //     console.log('rest:', rest);
@@ -110,4 +162,3 @@
 // // validate("test@email.com");
 // // validate("test@email.com", "required");
 // validate("test@email.com", "required", "minLength", "emailFormat");
-
