@@ -1,32 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Character Counter</title>
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body class="dark">
-
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body class="dark">
     <header class="site-header">
-        <div class="header-inner">
-            <div class="logo">JS Gym</div>
-            <button id="themeToggle">Toggle Theme</button>
-        </div>
+      <div class="header-inner">
+        <div class="logo">JS Gym</div>
+        <button id="themeToggle">Toggle Theme</button>
+      </div>
     </header>
-    
+
     <main class="container">
-        <h1>Character Counter</h1>
+      <h1>Character Counter</h1>
 
-        <label for="message">Your message</label>
-        <textarea id="message" rows="6" placeholder="Type here..."></textarea>
+      <label for="message">Your message</label>
+      <textarea
+        id="message"
+        rows="6"
+        maxlength="120"
+        placeholder="Type here..."
+      ></textarea>
 
-        <div class="meta">
-            <p><span id="count">0</span> / <span id="limit">120</span></p>
-            <p id="status">Within limit ✅</p>
-        </div>
+      <div class="meta">
+        <p><span id="count">0</span> / <span id="limit">120</span></p>
+        <p id="status">Within limit ✅</p>
+      </div>
     </main>
 
     <script src="./app.js"></script>
-</body>
+  </body>
 </html>

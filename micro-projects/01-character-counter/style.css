@@ -80,3 +80,7 @@ textarea {
     font-size: 0.9rem;
     color: var(--muted);
 }
+
+.over-limit {
+    color: #ef4444;
+}
