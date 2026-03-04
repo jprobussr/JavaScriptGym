@@ -7,9 +7,8 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
 
-  
   <body class="dark">
-    <header>
+    <header class="site-header">
       <div class="header-inner">
         <div class="logo">JS Gym</div>
         <button id="themeToggle">Toggle Theme</button>
@@ -19,7 +18,7 @@
     <main class="container">
       <h1>Tip Calculator</h1>
 
-      <form id="tipForm">
+      <form id="tipForm" class="card">
         <label for="bill">Bill Amount</label>
         <input
           type="number"
@@ -54,7 +53,7 @@
         <button type="submit" id="calculateBtn">Calculate Tip</button>
       </form>
 
-      <section class="results">
+      <section class="card results">
         <h2>Results</h2>
         <p>Tip: <strong id="tipAmount">$0.00</strong></p>
         <p>Total: <strong id="totalAmount">$0.00</strong></p>
