@@ -32,6 +32,15 @@ const getRandomQuote = () => {
 
   quoteText.textContent = `"${randomQuote.text}"`;
   quoteAuthor.textContent = `- ${randomQuote.author}`;
+
+  quoteText.style.animation = 'none';
+  quoteAuthor.style.animation = 'none';
+
+  quoteText.offsetHeight;
+  quoteAuthor.offsetHeight;
+
+  quoteText.style.animation = '';
+  quoteAuthor.style.animation = '';
 };
 
 newQuoteBtn.addEventListener('click', getRandomQuote);
