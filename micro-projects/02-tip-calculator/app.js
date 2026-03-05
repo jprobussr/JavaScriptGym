@@ -19,11 +19,11 @@ tipForm.addEventListener('submit', (event) => {
   if (Number.isNaN(peopleValue) || peopleValue < 1) return;
 
   const tipAmount = billValue * (tipValue / 100);
-  const totalAmount = billValue + tipAmount;
-  const perPersonAmount = totalAmount / peopleValue;
+  const billAmount = billValue + tipAmount;
+  const perPersonAmount = billAmount / peopleValue;
 
   tipAmountDisplay.textContent = `$${tipAmount.toFixed(2)}`;
-  totalAmountDisplay.textContent = `$${totalAmount.toFixed(2)}`;
+  totalAmountDisplay.textContent = `$${billAmount.toFixed(2)}`;
   perPersonDisplay.textContent = `$${perPersonAmount.toFixed(2)}`;
 });
 
