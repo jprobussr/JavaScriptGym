@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Number Guessing Game</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body class="dark">
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="logo">JS Gym</div>
+        <button id="themeToggle" type="button">Toggle Theme</button>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="card game-card">
+        <h2>Guess the Number</h2>
+        <p>Pick a number between 1 and 100</p>
+
+        <form id="guessForm">
+            <input
+              type="number"
+              id="guessInput"
+              min="1"
+              max="100"
+              placeholder="Enter your guess"
+            />
+            <button id="guessBtn">Guess</button>
+        </form>
+
+        <p id="message">Start Guessing</p>
+
+        <p id="attempts">Attempts: 0</p>
+
+        <button id="attempts">Reset Game</button>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p>Number Guessing Game</p>
+      </div>
+    </footer>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
