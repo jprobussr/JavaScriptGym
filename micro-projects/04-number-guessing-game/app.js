@@ -6,42 +6,60 @@ const resetBtn = document.getElementById('resetBtn');
 const guessForm = document.getElementById('guessForm');
 const themeToggleBtn = document.getElementById('themeToggle');
 
-let secretNumber = Math.floor(Math.random() * 100) + 1
+let secretNumber = Math.floor(Math.random() * 100) + 1;
 let attempts = 0;
 
-console.log(guessForm)
+const updateAttemptsDisplay = () => {
+  attemptsDisplay.textContent = `Attempts: ${attempts}`;
+};
 
-guessForm.addEventListener('submit', (event) => {
-  event.preventDefault();
+const updateMessage = (text) => {
+  message.textContent = text;
+};
 
+const setGameDisabled = (disabled) => {
+  guessInput.disabled = disabled;
+  guessBtn.disabled = disabled;
+};
+
+const handleGuess = () => {
   const userGuess = Number(guessInput.value);
 
   attempts++;
-
-  attemptsDisplay.textContent = `Attempts: ${attempts}`;
+  updateAttemptsDisplay();
 
   if (userGuess === secretNumber) {
-    message.textContent = `Correct! The number was ${secretNumber} 🎉`;
-
-    guessInput.disabled = true;
-    guessBtn.disabled = true;
+    updateMessage(`Correct! The number was ${secretNumber} 🎉`);
+    setGameDisabled(true);
   } else if (userGuess > secretNumber) {
-    message.textContent = 'Too high! Try again.';
+    updateMessage('Too High! Try again.');
   } else {
-    message.textContent = 'Too low! Try again.';
+    updateMessage('Too low! Try again.');
   }
-});
+};
 
-resetBtn.addEventListener('click', () => {
-  secretNumber = Math.floor(Math.random() * 100) + 1
+const resetGame = () => {
+  secretNumber = Math.floor(Math.random() * 100) + 1;
   attempts = 0;
 
-  attemptsDisplay.textContent = 'Attempts: 0';
-
-  message.textContent = 'Start guessing!';
-
-  guessInput.disabled = false;
-  guessBtn.disabled = false;
+  updateAttemptsDisplay();
+  updateMessage('Start guessing!');
+  setGameDisabled(false);
 
   guessInput.value = '';
+};
+
+guessForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  handleGuess();
 });
+
+resetBtn.addEventListener('click', resetGame);
+
+themeToggleBtn.addEventListener('click', () => {
+  document.body.classList.toggle('dark');
+});
+
+
+updateAttemptsDisplay();
+updateMessage('Start guessing!');
