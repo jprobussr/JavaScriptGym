@@ -1,0 +1,150 @@
+:root {
+  --bg: #f4f7fb;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --accent: #2563eb;
+  --border: rgba(15, 23, 42, 0.12);
+
+  --danger: #ef4444;
+  --warning: #f59e0b;
+  --success: #16a34a;
+
+  --radius: 16px;
+  --container: 40rem;
+}
+
+body.dark {
+  --bg: #07111f;
+  --surface: #102038;
+  --text: #f8fafc;
+  --muted: #b6c2d2;
+  --accent: #00c2ff;
+  --border: rgba(148, 163, 184, 0.18);
+
+  --danger: #ff5d73;
+  --warning: #ffb703;
+  --success: #22c55e;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  width: min(100% - 2rem, var(--container));
+  margin: 3rem auto;
+}
+
+main {
+  flex: 1;
+}
+
+.site-header {
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.header-inner {
+  width: min(100% - 2rem, var(--container));
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  text-align: center;
+}
+
+.game-card h2 {
+  margin-top: 0;
+}
+
+.game-card p {
+  color: var(--muted);
+}
+
+#guessInput {
+  width: 120px;
+  display: block;
+  margin: 1rem auto;
+  padding: 0.5rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #091321;
+  color: var(--text);
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+#guessInput::placeholder {
+  color: var(--muted);
+  font-size: 1.5rem;
+}
+
+button {
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  border: none;
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+#attempts {
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+.site-footer {
+  border-top: 1px solid var(--border);
+}
+
+.footer-inner {
+  width: min(100% - 2rem, var(--container));
+  margin: 0 auto;
+  text-align: center;
+  padding: 1rem 0;
+  color: var(--muted);
+}
+
+#message.high {
+  color: var(--danger);
+}
+
+#message.low {
+  color: var(--warning);
+}
+
+#message.correct {
+  color: var(--success);
+}
+
+#message {
+  min-height: 1.5rem;
+  font-weight: 600;
+}

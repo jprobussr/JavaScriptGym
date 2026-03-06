@@ -13,13 +13,18 @@ const updateAttemptsDisplay = () => {
   attemptsDisplay.textContent = `Attempts: ${attempts}`;
 };
 
-const updateMessage = (text) => {
-  message.textContent = text;
-};
-
 const setGameDisabled = (disabled) => {
   guessInput.disabled = disabled;
   guessBtn.disabled = disabled;
+};
+
+const updateMessageState = (text, className) => {
+  message.textContent = text;
+  message.classList.remove('high', 'low', 'correct');
+
+  if (className) {
+    message.classList.add(className);
+  }
 };
 
 const handleGuess = () => {
@@ -29,12 +34,12 @@ const handleGuess = () => {
   updateAttemptsDisplay();
 
   if (userGuess === secretNumber) {
-    updateMessage(`Correct! The number was ${secretNumber} 🎉`);
+    updateMessageState(`Correct! The number was ${secretNumber} 🎉`, 'correct');
     setGameDisabled(true);
   } else if (userGuess > secretNumber) {
-    updateMessage('Too High! Try again.');
+    updateMessageState('Too High! Try again.', 'high');
   } else {
-    updateMessage('Too low! Try again.');
+    updateMessageState('Too low! Try again.', 'low');
   }
 };
 
@@ -43,7 +48,7 @@ const resetGame = () => {
   attempts = 0;
 
   updateAttemptsDisplay();
-  updateMessage('Start guessing!');
+  updateMessageState('Start guessing!', '');
   setGameDisabled(false);
 
   guessInput.value = '';
@@ -60,6 +65,5 @@ themeToggleBtn.addEventListener('click', () => {
   document.body.classList.toggle('dark');
 });
 
-
 updateAttemptsDisplay();
-updateMessage('Start guessing!');
+updateMessageState('Start guessing!', '');
