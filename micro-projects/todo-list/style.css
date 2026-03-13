@@ -1,0 +1,136 @@
+:root {
+  --bg: #140f1f;
+  --surface: #211a31;
+  --surface-2: #2b2240;
+  --text: #f5f3ff;
+  --muted: #b7accf;
+  --accent: #a78bfa;
+  --accent-hover: #8b5cf6;
+  --border: rgba(167, 139, 250, 0.2);
+
+  --radius: 16px;
+  --container: 42rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.container {
+  width: min(100% - 2rem, var(--container));
+  margin-inline: auto;
+}
+
+.site-header,
+.site-footer {
+  padding: 1rem 0;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+#themeToggle {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 0.55rem 0.85rem;
+  cursor: pointer;
+}
+
+.main-content {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  padding: 2rem 0;
+}
+
+.todo-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.todo-card h1 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.todo-card p {
+  margin-top: 0;
+}
+
+.todo-controls {
+  display: flex;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+
+#taskInput {
+  flex: 1;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text);
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+}
+
+#taskInput::placeholder {
+  color: var(--muted);
+}
+
+#addTaskBtn {
+  border: none;
+  background: var(--accent);
+  color: var(--bg);
+  font-weight: 700;
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  cursor: pointer;
+}
+
+#taskList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+}
+
+#taskCount {
+  color: var(--muted);
+  margin-bottom: 0;
+}
+
+.site-footer p {
+    margin: 0;
+    color: var(--muted);
+    text-align: center;
+}
