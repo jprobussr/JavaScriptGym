@@ -1,16 +1,47 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo List</title>
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-    
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <p class="logo">JS Gym</p>
+      </div>
+    </header>
 
+    <main class="main-content">
+      <div class="container">
+        <section class="todo-card">
+          <h1>To-Do List</h1>
+          <p>Add a task, mark it complete, or delete it.</p>
+
+          <div class="todo-controls">
+            <input
+              type="text"
+              id="taskInput"
+              placeholder="Enter a task"
+              aria-label="Enter a task"
+            />
+            <button id="addTaskBtn">Add</button>
+          </div>
+
+          <ul id="taskList"></ul>
+
+          <p id="taskCount">Tasks: 0</p>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>Built for JavaScript practice.</p>
+        </div>
+    </footer>
 
     <script src="./script.js"></script>
-</body>
+  </body>
 </html>
