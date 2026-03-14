@@ -15,7 +15,11 @@ taskForm.addEventListener('submit', (event) => {
   const deleteBtn = document.createElement('button');
 
   taskLabel.textContent = taskText;
-  deleteBtn.textContent = 'Delete';
+  deleteBtn.textContent = 'X';
+
+  taskLabel.addEventListener('click', () => {
+    taskLabel.classList.toggle('completed');
+  });
 
   li.append(taskLabel, deleteBtn);
   taskList.appendChild(li);
