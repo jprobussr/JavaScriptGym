@@ -5,8 +5,12 @@ const taskList = document.getElementById('taskList');
 const taskCount = document.getElementById('taskCount');
 const themeToggle = document.getElementById('themeToggle');
 
-taskForm.addEventListener('submit', (event) => {
-  event.preventDefault();
+const updateTaskCount = () => {
+  taskCount.textContent = `To Do: ${taskList.children.length}`;
+}
+
+taskForm.addEventListener('submit', (e) => {
+  e.preventDefault();
 
   const taskText = taskInput.value;
 
@@ -15,18 +19,22 @@ taskForm.addEventListener('submit', (event) => {
   const deleteBtn = document.createElement('button');
 
   taskLabel.textContent = taskText;
-  deleteBtn.textContent = 'X';
+  deleteBtn.textContent = '✖️';
+
+  li.append(taskLabel, deleteBtn);
+  taskList.appendChild(li);
+
+  updateTaskCount();
 
   taskLabel.addEventListener('click', () => {
     taskLabel.classList.toggle('completed');
   });
 
-  li.append(taskLabel, deleteBtn);
-  taskList.appendChild(li);
-
-  taskInput.value = '';
-
   deleteBtn.addEventListener('click', () => {
     li.remove();
+    updateTaskCount();
   });
+
+  taskInput.value = '';
+  taskInput.focus();
 });
