@@ -7,12 +7,16 @@ const themeToggle = document.getElementById('themeToggle');
 
 const updateTaskCount = () => {
   taskCount.textContent = `To Do: ${taskList.children.length}`;
-}
+};
 
 taskForm.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  const taskText = taskInput.value;
+  const taskText = taskInput.value.trim();
+
+  if (taskText === '') {
+    return;
+  }
 
   const li = document.createElement('li');
   const taskLabel = document.createElement('span');
