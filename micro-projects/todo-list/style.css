@@ -149,4 +149,36 @@ input {
 .completed {
   text-decoration: line-through;
   opacity: 0.7;
+  color: var(--muted);
+}
+
+#taskList li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin-bottom: 0.75rem;
+}
+
+#taskList li span {
+  flex: 1;
+  cursor: pointer;
+}
+
+#taskList li button {
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+}
+
+#taskList li button:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
 }

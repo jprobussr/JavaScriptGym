@@ -6,14 +6,17 @@ const themeToggle = document.getElementById('themeToggle');
 const taskForm = document.getElementById('taskForm');
 
 const updateTaskCount = () => {
-  taskCount.textContent = `Tasks: ${taskList.children.length}`;
+  taskCount.textContent = `Tasks Todo: ${taskList.children.length}`;
 };
+
+themeToggle.addEventListener('click', () => {
+  document.body.classList.toggle('light');
+});
 
 const saveTasks = () => {
   const tasks = [];
 
   const taskItems = taskList.querySelectorAll('li');
-
   taskItems.forEach((taskItem) => {
     const taskLabel = taskItem.querySelector('span');
 
@@ -77,6 +80,7 @@ taskForm.addEventListener('submit', (event) => {
   saveTasks();
 
   taskInput.value = '';
+  taskInput.focus();
 });
 
 loadTasks();
