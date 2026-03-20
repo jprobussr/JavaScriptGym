@@ -4,14 +4,11 @@ const taskList = document.getElementById('taskList');
 const taskCount = document.getElementById('taskCount');
 const themeToggle = document.getElementById('themeToggle');
 const taskForm = document.getElementById('taskForm');
+const body = document.body;
 
 const updateTaskCount = () => {
   taskCount.textContent = `Tasks Todo: ${taskList.children.length}`;
 };
-
-themeToggle.addEventListener('click', () => {
-  document.body.classList.toggle('light');
-});
 
 const saveTasks = () => {
   const tasks = [];
@@ -84,3 +81,39 @@ taskForm.addEventListener('submit', (event) => {
 });
 
 loadTasks();
+
+const updateTheme = () => {
+  const isLight = body.classList.contains('light');
+
+  if (isLight) {
+    themeToggle.textContent = '🌙';
+    themeToggle.setAttribute('aria-pressed', 'true');
+  } else {
+    themeToggle.textContent = '☀️';
+    themeToggle.setAttribute('aria-pressed', 'false');
+  }
+};
+
+const savedTheme = localStorage.getItem('theme');
+
+if (savedTheme === 'light') {
+  body.classList.add('light');
+} else {
+  body.classList.remove('light');
+}
+
+updateTheme();
+
+themeToggle.addEventListener('click', () => {
+  body.classList.toggle('light');
+
+  const isLight = body.classList.contains('light');
+
+  if (isLight) {
+    localStorage.setItem('theme', 'light');
+  } else {
+    localStorage.setItem('theme', 'dark');
+  }
+
+  updateTheme();
+});

@@ -46,7 +46,7 @@ input {
 }
 
 .container {
-  width: min(100% - 2rem, var(--container));
+  width: min(100% - 3rem, var(--container));
   margin-inline: auto;
 }
 
