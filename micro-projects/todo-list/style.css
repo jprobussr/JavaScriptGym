@@ -1,18 +1,4 @@
 :root {
-  --bg: #140f1f;
-  --surface: #211a31;
-  --surface-2: #2b2240;
-  --text: #f5f3ff;
-  --muted: #b7accf;
-  --accent: #a78bfa;
-  --accent-hover: #8b5cf6;
-  --border: rgba(167, 139, 250, 0.2);
-
-  --radius: 16px;
-  --container: 42rem;
-}
-
-body.light {
   --bg: #f6f4ff;
   --surface: #ffffff;
   --surface-2: #f1ecff;
@@ -21,6 +7,20 @@ body.light {
   --accent: #7c3aed;
   --accent-hover: #6d28d9;
   --border: rgba(124, 58, 237, 0.15);
+
+  --radius: 16px;
+  --container: 42rem;
+}
+
+body.light {
+  --bg: #140f1f;
+  --surface: #211a31;
+  --surface-2: #2b2240;
+  --text: #f5f3ff;
+  --muted: #b7accf;
+  --accent: #a78bfa;
+  --accent-hover: #8b5cf6;
+  --border: rgba(167, 139, 250, 0.2);
 }
 
 *,
