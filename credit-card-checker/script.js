@@ -59,5 +59,15 @@ const validateCred = (cardNumber) => {
   return sum % 10 === 0;
 };
 
-console.log(validateCred(valid1));
-console.log(validateCred(invalid1));
+const findInvalidCards = (cards) => {
+  const invalidCards = [];
+
+  for (const card of cards) {
+    if (!validateCred(card)) {
+      invalidCards.push(card);
+    }
+  }
+  return invalidCards;
+};
+
+console.log(findInvalidCards(batch));
