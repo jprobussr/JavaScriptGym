@@ -55,7 +55,6 @@ const validateCred = (cardNumber) => {
     }
     position++;
   }
-
   return sum % 10 === 0;
 };
 
@@ -67,7 +66,38 @@ const findInvalidCards = (cards) => {
       invalidCards.push(card);
     }
   }
+
   return invalidCards;
 };
 
-console.log(findInvalidCards(batch));
+const idInvalidCardCompanies = (invalidCards) => {
+  const companies = [];
+
+  for (const card of invalidCards) {
+    if (card[0] === 3) {
+      if (!companies.includes('Amex')) {
+        companies.push('Amex');
+      }
+    } else if (card[0] === 4) {
+      if (!companies.includes('Visa')) {
+        companies.push('Visa');
+      }
+    } else if (card[0] === 5) {
+      if (!companies.includes('Mastercard')) {
+        companies.push('Mastercard');
+      }
+    } else if (card[0] === 6) {
+        if (!companies.includes('Discover')) {
+          companies.push('Discover');
+        }
+    } else {
+      console.log('Company not found!');
+    }
+  }
+
+  return companies;
+};
+
+const invalidCards = findInvalidCards(batch);
+
+console.log(idInvalidCardCompanies(invalidCards));
