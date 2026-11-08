@@ -87,9 +87,9 @@ const idInvalidCardCompanies = (invalidCards) => {
         companies.push('Mastercard');
       }
     } else if (card[0] === 6) {
-        if (!companies.includes('Discover')) {
-          companies.push('Discover');
-        }
+      if (!companies.includes('Discover')) {
+        companies.push('Discover');
+      }
     } else {
       console.log('Company not found!');
     }
