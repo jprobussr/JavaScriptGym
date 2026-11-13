@@ -22,26 +22,18 @@ const pAequorFactory = (specimenNum, dna) => {
     specimenNum,
     dna,
     mutate() {
-        const randomIndex = Math.floor(Math.random() * 15);
-        const originalBase = this.dna[randomIndex];
+      const randIndex = Math.floor(Math.random() * 15);
+      const originalBase = this.dna[randIndex];
+      let newBase = returnRandBase();
 
-        let newBase = returnRandBase();
-        
-        while (newBase === originalBase) {
-            newBase = returnRandBase();
-        }
-        this.dna[randomIndex] = newBase;
-        return this.dna;
+      while (newBase === originalBase) {
+        newBase = returnRandBase();
+      }
+      this.dna[randIndex] = newBase;
+      return this.dna;
     },
   };
 
   return newObject;
 };
-
-const organism1 = pAequorFactory(1, mockUpStrand());
-const originalDna = [...organism1.dna];
-
-console.log(`Before: ${originalDna}`);
-console.log(`After: ${organism1.mutate()}`);
-
 
