@@ -58,7 +58,21 @@ const pAequorFactory = (specimenNum, dna) => {
   };
 };
 
-const organism1 = pAequorFactory(1, mockUpStrand());
-const organism2 = pAequorFactory(2, mockUpStrand());
+const survivingOrganisms = [];
+let specimenCounter = 1;
 
-console.log(`Will the organism survive ${organism1.willLikelySurvive()}.`);
+while (survivingOrganisms.length < 30) {
+  const newOrganism = pAequorFactory(specimenCounter, mockUpStrand());
+  
+  if (newOrganism.willLikelySurvive()) {
+    survivingOrganisms.push(newOrganism);
+  }
+
+  specimenCounter++;
+}
+
+const allSurvive = survivingOrganisms.every((organism) => {
+  return organism.willLikelySurvive();
+});
+
+console.log(allSurvive);
