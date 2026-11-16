@@ -1,5 +1,5 @@
 const returnRandBase = () => {
-  const dnaBases = ['A', 'T', 'C', 'G'];
+  const dnaBases = ["A", "T", "C", "G"];
   const randIndex = Math.floor(Math.random() * dnaBases.length);
   return dnaBases[randIndex];
 };
@@ -29,13 +29,24 @@ const pAequorFactory = (specimenNum, dna) => {
       this.dna[randIndex] = newBase;
       return this.dna;
     },
+    compareDna(otherOrganism) {
+      let matchingBase = 0;
+
+      for (let i = 0; i < this.dna.length; i++) {
+        if (this.dna[i] === otherOrganism.dna[i]) {
+          matchingBase++;
+        }
+      }
+      const percentage = (matchingBase / this.dna.length) * 100;
+
+      console.log(
+        `Specimen #${this.specimenNum} and specimen #${otherOrganism.specimenNum} have ${percentage.toFixed(2)}% DNA in common.`,
+      );
+    },
   };
 };
 
-const organism = pAequorFactory(10, mockUpStrand());
-const originalDna = [...organism.dna];
-const mutatedDna = organism.mutate();
+const organism1 = pAequorFactory(1, mockUpStrand());
+const organism2 = pAequorFactory(2, mockUpStrand());
 
-console.log({originalDna, mutatedDna});
-
-
+organism1.compareDna(organism2);
