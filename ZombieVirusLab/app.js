@@ -31,14 +31,50 @@ const virusFactory = (specimenNum, dna) => {
       this.dna[randIndex] = newBase;
       return this.dna;
     },
+    compareVirusDna(otherVirus) {
+      let matchingBases = 0;
+
+      for (let i = 0; i < this.dna.length; i++) {
+        if (this.dna[i] === otherVirus.dna[i]) {
+          matchingBases++;
+        }
+      }
+      const similarity = (matchingBases / this.dna.length) * 100;
+      console.log(
+        `Specimen #${this.specimenNum} and Specimen #${otherVirus.specimenNum} have ${similarity.toFixed(2)}% DNA in common.`,
+      );
+    },
+    isHighlyInfectious() {
+      let cgCount = 0;
+
+      for (let i = 0; i < this.dna.length; i++) {
+        if (this.dna[i] === "C" || this.dna[i] === "G") {
+          cgCount++;
+        }
+      }
+      const cgPercentage = (cgCount / this.dna.length) * 100;
+      return cgPercentage >= 60;
+    },
   };
 };
 
-const virus1 = virusFactory(100, generateVirusDna());
-const originalDna = [...virus1.dna];
-const mutatedDna = virus1.mutate();
+const organism1 = virusFactory(100, generateVirusDna());
+const organism2 = virusFactory(2, generateVirusDna());
 
-console.log({originalDna, mutatedDna});
+const infectiousViruses = [];
 
+while (infectiousViruses.length < 30) {
+  const newVirus = virusFactory(
+    infectiousViruses.length + 1,
+    generateVirusDna(),
+  );
+  if (newVirus.isHighlyInfectious()) {
+    infectiousViruses.push(newVirus);
+  }
+}
 
+const allInfectious = infectiousViruses.every((virus) => {
+  return virus.isHighlyInfectious();
+});
 
+console.log(allInfectious);
