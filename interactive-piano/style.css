@@ -21,27 +21,77 @@ body {
 }
 
 .app {
-    width: 100%;
-    max-width: 120rem;
-    margin: 0 auto;
-    padding: 4rem 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  width: 100%;
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .app__title {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 1rem;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .app__description {
-    font-size: 1.125rem;
-    color: var(--color-text-muted);
-    text-align: center;
-    margin-bottom: 3rem;
-    max-width: 40rem;
+  font-size: 1.125rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  margin-bottom: 3rem;
+  max-width: 40rem;
+}
+
+.piano {
+  display: flex;
+  background-color: var(--color-surface);
+  width: 100%;
+  max-width: 60rem;
+  height: 18rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  position: relative;
+}
+
+.piano__key {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.15s ease;
+}
+
+.piano__key--white {
+  flex: 1;
+  height: 100%;
+  background-color: #f8fafc;
+  color: #1b2330;
+  border: 1px solid #94a3b8;
+  border-radius: 0 0 0.4rem 0.4rem;
+}
+
+.piano__key--black {
+  position: absolute;
+  width: 7%;
+  height: 60%;
+  background-color: #111827;
+  color: #f8fafc;
+  border: 1px solid #020617;
+  border-radius: 0 0 0.4rem 0.4rem;
+  z-index: 2;
+}
+
+#key-c-sharp4 {
+    left: calc(1rem + (100% - 2rem) * 0.125 - 3.5%);
+    top: 1rem;
+}
+
+#key-d-sharp4 {
+    left: calc(1rem + (100% - 2rem) * 0.25 - 3.5%);
+    top: 1rem;
 }
