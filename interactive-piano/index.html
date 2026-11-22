@@ -1,14 +1,124 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Piano</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <h1 class="app__title">Interactive Piano</h1>
+      <p class="app__description">Play music using your mouse or keyboard</p>
+
+      <div class="piano" id="piano">
+        <button
+          type="button"
+          class="piano__key piano__key--white"
+          id="key-c4"
+          aria-label="C4"
+        >
+          C
+        </button>
+        <button
+          type="button"
+          class="piano__key piano__key--black"
+          id="key-c-sharp4"
+          aria-label="C sharp 4"
+        >
+          C♯
+        </button>
+        <button
+          type="button"
+          class="piano__key piano__key--white"
+          id="key-d4"
+          aria-label="D4"
+        >
+          D
+        </button>
+        <button
+          type="button"
+          class="piano__key piano__key--black"
+          id="key-d-sharp4"
+          aria-label="D sharp 4"
+        >
+          D♯
+        </button>
+        <button
+          type="button"
+          class="piano__key piano__key--white"
+          id="key-e4"
+          aria-label="E4"
+        >
+          E
+        </button>
+        <button
+          type="button"
+          class="piano__key piano__key--white"
+          id="key-f4"
+          aria-label="F4"
+        >
+          F
+        </button>
+        <button
+          type="button"
+          class="piano__key piano__key--black"
+          id="key-f-sharp4"
+          aria-label="F sharp 4"
+        >
+          F♯
+        </button>
+        <button
+          type="button"
+          class="piano__key piano__key--white"
+          id="key-g4"
+          aria-label="G4"
+        >
+          G
+        </button>
+        <button
+          type="button"
+          class="piano__key piano__key--black"
+          id="key-g-sharp4"
+          aria-label="G sharp 4"
+        >
+          G♯
+        </button>
+        <button
+          type="button"
+          class="piano__key piano__key--white"
+          id="key-a4"
+          aria-label="A4"
+        >
+          A
+        </button>
+        <button
+          type="button"
+          class="piano__key piano__key--black"
+          id="key-a-sharp4"
+          aria-label="A sharp 4"
+        >
+          A♯
+        </button>
+        <button
+          type="button"
+          class="piano__key piano__key--white"
+          id="key-b4"
+          aria-label="B4"
+        >
+          B
+        </button>
+        <button
+          type="button"
+          class="piano__key piano__key--white"
+          id="key-c5"
+          aria-label="C5"
+        >
+          C
+        </button>
+      </div>
+    </main>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
