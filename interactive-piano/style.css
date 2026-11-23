@@ -16,7 +16,7 @@ body {
   min-height: 100vh;
   background-color: var(--color-bg);
   color: var(--color-text);
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   line-height: 1.5;
 }
 
@@ -84,14 +84,44 @@ body {
   border: 1px solid #020617;
   border-radius: 0 0 0.4rem 0.4rem;
   z-index: 2;
+  top: 1rem;
+  transform: translateX(-50%);
 }
 
 #key-c-sharp4 {
-    left: calc(1rem + (100% - 2rem) * 0.125 - 3.5%);
-    top: 1rem;
+  left: calc(1rem + (100% - 2rem) * 0.125);
 }
 
 #key-d-sharp4 {
-    left: calc(1rem + (100% - 2rem) * 0.25 - 3.5%);
-    top: 1rem;
+  left: calc(1rem + (100% - 2rem) * 0.25);
+}
+
+#key-f-sharp4 {
+  left: calc(1rem + (100% - 2rem) * 0.5);
+}
+
+#key-g-sharp4 {
+  left: calc(1rem + (100% - 2rem) * 0.625);
+}
+
+#key-a-sharp4 {
+  left: calc(1rem + (100% - 2rem) * 0.75);
+}
+
+@media (max-width: 768px) {
+  .app {
+    padding: 2rem 1rem;
+  }
+
+  .piano {
+    height: 14rem;
+  }
+
+  .piano__key {
+    font-size: 0.75rem;
+  }
+
+  .piano__key--black {
+    width: 8%;
+  }
 }
