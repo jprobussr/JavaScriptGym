@@ -1,7 +1,22 @@
-const c4Key = document.getElementById("key-c4");
+const pianoKeys = document.querySelectorAll(".piano__key");
 
-const handleKeyClick = (event) => {
-  console.log(event.type)
+const handleMouseEnter = (event) => {
+  event.currentTarget.style.backgroundColor = "lightblue";
 };
 
-c4Key.addEventListener("click", handleKeyClick);
+const handleMouseLeave = (event) => {
+  event.currentTarget.style.backgroundColor = "";
+};
+
+const handleKeyDown = (event) => {
+  console.log(event.key);
+}
+
+const setupPianoKey = (key) => {
+  key.addEventListener("mouseenter", handleMouseEnter);
+  key.addEventListener("mouseleave", handleMouseLeave);
+};
+
+
+document.addEventListener('keydown', handleKeyDown);
+pianoKeys.forEach(setupPianoKey);
