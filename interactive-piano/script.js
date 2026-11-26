@@ -17,12 +17,32 @@ const keyboardMap = {
 };
 
 const handleKeyDown = (event) => {
-  const pressedKey = event.key;
+  if (event.repeat) {
+    return;
+  }
+
+  const pressedKey = event.key.toLowerCase();
   const pianoKeyId = keyboardMap[pressedKey];
+
   if (!pianoKeyId) {
     return;
   }
-  console.log(pianoKeyId);
+
+  const pianoKey = document.getElementById(pianoKeyId);
+  pianoKey.classList.add('piano__key--active');
+};
+
+const handleKeyUp = (event) => {
+  const pressedKey = event.key.toLowerCase();
+  const pianoKeyId = keyboardMap[pressedKey];
+
+  if (!pianoKeyId) {
+    return;
+  }
+
+  const pianoKey = document.getElementById(pianoKeyId);
+  pianoKey.classList.remove('piano__key--active');
 };
 
 document.addEventListener('keydown', handleKeyDown);
+document.addEventListener('keyup', handleKeyUp);
